@@ -8,8 +8,27 @@ var buildCompanyGoalsPanel = function()
     $(mainContainer).empty();
     mainContainer.append(body);
 
-    //initializing materialize components
-    //$("#mainContainer").find(".tabs").tabs();
+    populateCompanyGoalsData(function(){
+
+        Object.keys(companyGoalsData["cg-fin"]).forEach(function(key){
+            $("#"+key).val(companyGoalsData["cg-fin"][key]);
+        });
+
+        Object.keys(companyGoalsData["cg-cli"]).forEach(function(key){
+            $("#"+key).val(companyGoalsData["cg-cli"][key]);
+        });
+
+        Object.keys(companyGoalsData["cg-int"]).forEach(function(key){
+            $("#"+key).val(companyGoalsData["cg-int"][key]);
+        });
+
+        Object.keys(companyGoalsData["cg-apr"]).forEach(function(key){
+            $("#"+key).val(companyGoalsData["cg-apr"][key]);
+        });
+
+    });
+
+    M.updateTextFields();
     $("#mainContainer").find(".collapsible").collapsible();
 };
 
@@ -21,3 +40,31 @@ var hideCompanyGoalsPanel = function()
     $(body).attr("id", "companyGoals");
     mainContainer.append(body);
 };
+
+
+function saveCompanyGoalsData()
+{
+    //updating data
+
+    Object.keys(companyGoalsData["cg-fin"]).forEach(function(key){
+        companyGoalsData["cg-fin"][key] = $("#"+key).val();
+    });
+
+    Object.keys(companyGoalsData["cg-cli"]).forEach(function(key){
+        companyGoalsData["cg-cli"][key] = $("#"+key).val();
+    });
+
+    Object.keys(companyGoalsData["cg-int"]).forEach(function(key){
+        companyGoalsData["cg-int"][key] = $("#"+key).val();
+    });
+
+    Object.keys(companyGoalsData["cg-apr"]).forEach(function(key){
+        companyGoalsData["cg-apr"][key] = $("#"+key).val();
+    });
+
+    //pushing updated data to DB
+    firebase.database().ref('/companyGoals').set(companyGoalsData);
+
+    M.toast({html: 'Guardado'})
+}
+

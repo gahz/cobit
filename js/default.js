@@ -9,7 +9,13 @@ var hidePositions={
     welcomePanel : hideWelcomePanel,
     companyGoals : hideCompanyGoalsPanel,
     ITGoals: hideITCompanyGoalsPanel,
-    AutoDiagnostic: hideAutoDiagnosticPanel()
+    AutoDiagnostic: hideAutoDiagnosticPanel
+};
+
+var savePositionData={
+    companyGoals : saveCompanyGoalsData,
+    ITGoals: saveITGoalsData,
+    AutoDiagnostic: saveAutoDiagnosticData
 };
 
 function updatePosition(lastPosition, nextPosition)

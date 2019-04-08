@@ -8,6 +8,15 @@ var buildITCompanyGoalsPanel = function()
     $(mainContainer).empty();
     mainContainer.append(body);
 
+    populateITGoalsData(function(){
+
+        Object.keys(ITGoalsData).forEach(function(key){
+            $("#"+key).val(ITGoalsData[key]);
+        });
+
+    });
+
+    M.updateTextFields();
     $("#mainContainer").find(".collapsible").collapsible();
     $("#mainContainer").find('select').formSelect();
 };
@@ -20,3 +29,8 @@ var hideITCompanyGoalsPanel = function()
     $(body).attr("id", "ITGoals");
     mainContainer.append(body);
 };
+
+function saveITGoalsData()
+{
+
+}

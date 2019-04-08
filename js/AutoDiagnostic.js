@@ -8,7 +8,16 @@ var buildAutoDiagnosticPanel = function()
     $(mainContainer).empty();
     mainContainer.append(body);
 
-    //initializing materialize components
+    populateAutoDiagnosticData(function(){
+
+        Object.keys(autoDiagnosticData).forEach(function(key){
+            $("#"+key).val(autoDiagnosticData[key]);
+        });
+
+    });
+
+    M.updateTextFields();
+
     $("#mainContainer").find(".collapsible").collapsible();
     $("#mainContainer").find('select').formSelect();
 };
@@ -21,3 +30,9 @@ var hideAutoDiagnosticPanel = function()
     $(body).attr("id", "AutoDiagnostic");
     mainContainer.append(body);
 };
+
+function saveAutoDiagnosticData()
+{
+
+
+}
