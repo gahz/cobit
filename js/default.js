@@ -31,5 +31,6 @@ $( document ).ready(function(){
     //default position is welcome panel
     updatePosition(null, "welcomePanel");
 
+    setTimeout(function(){ $('.input-field label').addClass('active'); }, 1);
     $(".tabs").tabs();
 });

@@ -30,3 +30,8 @@ function populateAutoDiagnosticData(formDataPopulation)
         formDataPopulation();
     });
 }
+
+function valOrParam(el, param)
+{
+    return (el.val())?el.val():param;
+}

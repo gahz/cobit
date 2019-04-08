@@ -11,14 +11,16 @@ var buildITCompanyGoalsPanel = function()
     populateITGoalsData(function(){
 
         Object.keys(ITGoalsData).forEach(function(key){
-            $("#"+key).val(ITGoalsData[key]);
+                $("#"+key).val(ITGoalsData[key]);
         });
+
+        $("#mainContainer").find('select').formSelect();
 
     });
 
     M.updateTextFields();
     $("#mainContainer").find(".collapsible").collapsible();
-    $("#mainContainer").find('select').formSelect();
+    //$("#mainContainer").find('select').formSelect();
 };
 
 var hideITCompanyGoalsPanel = function()
@@ -32,5 +34,17 @@ var hideITCompanyGoalsPanel = function()
 
 function saveITGoalsData()
 {
+    Object.keys(ITGoalsData).forEach(function(key){
 
+        if($("#"+key).prop('tagName').toLowerCase() == "select")
+            ITGoalsData[key] = valOrParam($("#"+key).find("option:selected"), "S");
+        else
+            ITGoalsData[key] = $("#"+key).val();
+
+    });
+
+    //pushing updated data to DB
+    firebase.database().ref('/ITGoals').set(ITGoalsData);
+
+    M.toast({html: 'Guardado'})
 }

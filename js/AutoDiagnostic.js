@@ -34,5 +34,12 @@ var hideAutoDiagnosticPanel = function()
 function saveAutoDiagnosticData()
 {
 
+    Object.keys(autoDiagnosticData).forEach(function(key){
+        autoDiagnosticData[key] = $("#"+key).val();
+    });
 
+    //pushing updated data to DB
+    firebase.database().ref('/AutoDiagnostic').set(AutoDiagnostic);
+
+    M.toast({html: 'Guardado'})
 }
