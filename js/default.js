@@ -1,11 +1,13 @@
 var buildPositions={
     welcomePanel : buildWelcomePanel,
-    companyGoals : buildCompanyGoalsPanel
+    companyGoals : buildCompanyGoalsPanel,
+    ITGoals: buildITCompanyGoalsPanel
 };
 
 var hidePositions={
     welcomePanel : hideWelcomePanel,
-    companyGoals : hideCompanyGoalsPanel
+    companyGoals : hideCompanyGoalsPanel,
+    ITGoals: hideITCompanyGoalsPanel
 };
 
 function updatePosition(lastPosition, nextPosition)
