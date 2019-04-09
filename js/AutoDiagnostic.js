@@ -14,12 +14,11 @@ var buildAutoDiagnosticPanel = function()
             $("#"+key).val(autoDiagnosticData[key]);
         });
 
+        $("#mainContainer").find('select').formSelect();
+        M.updateTextFields();
     });
 
-    M.updateTextFields();
-
     $("#mainContainer").find(".collapsible").collapsible();
-    $("#mainContainer").find('select').formSelect();
 };
 
 var hideAutoDiagnosticPanel = function()
@@ -35,11 +34,15 @@ function saveAutoDiagnosticData()
 {
 
     Object.keys(autoDiagnosticData).forEach(function(key){
-        autoDiagnosticData[key] = $("#"+key).val();
+
+        if($("#"+key).prop('tagName').toLowerCase() == "select")
+            autoDiagnosticData[key] = valOrParam($("#"+key).find("option:selected"), "");
+        else
+            autoDiagnosticData[key] = valOrParam($("#"+key), "");
     });
 
     //pushing updated data to DB
-    firebase.database().ref('/AutoDiagnostic').set(AutoDiagnostic);
+    firebase.database().ref('/AutoDiagnostic').set(autoDiagnosticData);
 
     M.toast({html: 'Guardado'})
 }

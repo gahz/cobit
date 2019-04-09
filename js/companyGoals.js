@@ -26,9 +26,9 @@ var buildCompanyGoalsPanel = function()
             $("#"+key).val(companyGoalsData["cg-apr"][key]);
         });
 
+        M.updateTextFields();
     });
 
-    M.updateTextFields();
     $("#mainContainer").find(".collapsible").collapsible();
 };
 
@@ -47,19 +47,19 @@ function saveCompanyGoalsData()
     //updating data
 
     Object.keys(companyGoalsData["cg-fin"]).forEach(function(key){
-        companyGoalsData["cg-fin"][key] = $("#"+key).val();
+        companyGoalsData["cg-fin"][key] =  valOrParam($("#"+key), "");
     });
 
     Object.keys(companyGoalsData["cg-cli"]).forEach(function(key){
-        companyGoalsData["cg-cli"][key] = $("#"+key).val();
+        companyGoalsData["cg-cli"][key] =  valOrParam($("#"+key), "");
     });
 
     Object.keys(companyGoalsData["cg-int"]).forEach(function(key){
-        companyGoalsData["cg-int"][key] = $("#"+key).val();
+        companyGoalsData["cg-int"][key] =  valOrParam($("#"+key), "");
     });
 
     Object.keys(companyGoalsData["cg-apr"]).forEach(function(key){
-        companyGoalsData["cg-apr"][key] = $("#"+key).val();
+        companyGoalsData["cg-apr"][key] =  valOrParam($("#"+key), "");
     });
 
     //pushing updated data to DB

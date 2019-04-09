@@ -15,10 +15,9 @@ var buildITCompanyGoalsPanel = function()
         });
 
         $("#mainContainer").find('select').formSelect();
-
+        M.updateTextFields();
     });
 
-    M.updateTextFields();
     $("#mainContainer").find(".collapsible").collapsible();
     //$("#mainContainer").find('select').formSelect();
 };
@@ -37,9 +36,9 @@ function saveITGoalsData()
     Object.keys(ITGoalsData).forEach(function(key){
 
         if($("#"+key).prop('tagName').toLowerCase() == "select")
-            ITGoalsData[key] = valOrParam($("#"+key).find("option:selected"), "S");
+            ITGoalsData[key] = valOrParam($("#"+key).find("option:selected"), "");
         else
-            ITGoalsData[key] = $("#"+key).val();
+            ITGoalsData[key] = valOrParam($("#"+key), "");
 
     });
 
