@@ -1,5 +1,6 @@
 var buildPositions={
     welcomePanel : buildWelcomePanel,
+    ITGoalsDefinition: buildITGoalsDefinition,
     companyGoals : buildCompanyGoalsPanel,
     ITGoals: buildITCompanyGoalsPanel,
     AutoDiagnostic: buildAutoDiagnosticPanel
@@ -7,15 +8,10 @@ var buildPositions={
 
 var hidePositions={
     welcomePanel : hideWelcomePanel,
+    ITGoalsDefinition: hideITGoalsDefinition,
     companyGoals : hideCompanyGoalsPanel,
     ITGoals: hideITCompanyGoalsPanel,
     AutoDiagnostic: hideAutoDiagnosticPanel
-};
-
-var savePositionData={
-    companyGoals : saveCompanyGoalsData,
-    ITGoals: saveITGoalsData,
-    AutoDiagnostic: saveAutoDiagnosticData
 };
 
 function updatePosition(lastPosition, nextPosition)

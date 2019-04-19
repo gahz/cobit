@@ -7,7 +7,7 @@ var buildITCompanyGoalsPanel = function()
 
     $(mainContainer).empty();
     mainContainer.append(body);
-
+/*
     populateITGoalsData(function(){
 
         Object.keys(ITGoalsData).forEach(function(key){
@@ -17,7 +17,7 @@ var buildITCompanyGoalsPanel = function()
         $("#mainContainer").find('select').formSelect();
         M.updateTextFields();
     });
-
+*/
     $("#mainContainer").find(".collapsible").collapsible();
     //$("#mainContainer").find('select').formSelect();
 };
@@ -33,6 +33,7 @@ var hideITCompanyGoalsPanel = function()
 
 function saveITGoalsData()
 {
+    /*
     Object.keys(ITGoalsData).forEach(function(key){
 
         if($("#"+key).prop('tagName').toLowerCase() == "select")
@@ -44,6 +45,6 @@ function saveITGoalsData()
 
     //pushing updated data to DB
     firebase.database().ref('/ITGoals').set(ITGoalsData);
-
+       */
     M.toast({html: 'Guardado'})
 }

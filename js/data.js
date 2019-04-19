@@ -31,6 +31,24 @@ function populateAutoDiagnosticData(formDataPopulation)
     });
 }
 
+function populateITGoalsDefinitionData(formDataPopulation)
+{
+    return firebase.database().ref('/ITGoals').once("value").then(function (snapshot) {
+        ITGoalsData = snapshot.val();
+        console.log(ITGoalsData);
+        formDataPopulation(ITGoalsData);
+    });
+}
+
+function lookoutForProcesses()
+{
+    var ref2 = firebase.database().ref('/cobitProcesses');
+    var query = ref2.orderByChild('id').equalTo('EDM01');
+    query.once('value',function(snapshot){
+        console.log(snapshot.val())
+    });
+}
+
 function valOrParam(el, param)
 {
     return (el.val())?el.val():param;
