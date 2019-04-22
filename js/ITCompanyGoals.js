@@ -78,6 +78,7 @@ var buildITCompanyGoalsPanel = function()
 
             $(loading).remove();
             $(mainContainer).find(".collapsible").collapsible();
+            $(mainContainer).find('select').formSelect();
             M.updateTextFields();
             $(body).show();
         });

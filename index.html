@@ -456,7 +456,232 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('AutoDiagnostic','ITGoals')">Anterior</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveAutoDiagnosticData()">Guardar</a>
-                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('AutoDiagnostic','AutoDiagnostic')">Siguiente</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('AutoDiagnostic','ProcessExecution')">Siguiente</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Process Execution -->
+<div class="hide">
+    <div class="row" id="processExecutionTemplate">
+        <div class="input-field col s1">
+            <input type="text" class="validate black-text processId" disabled="true">
+            <label>ID</label>
+        </div>
+        <div class="input-field col s5">
+            <input type="text" class="validate black-text processName" disabled="true">
+            <label>Proceso para la gobernanza de la TI empresarial.</label>
+        </div>
+        <div clas="col s2">
+            <a class="waves-effect waves-light btn-large indigo darken-3 processExecution">Ejecutar</a>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="ProcessExecutionWrapper">
+    <div class="row" id="ProcessExecution">
+
+        <div class="row">
+            <div class="col s12 card">
+
+                <div class="card-content">
+
+                    <div class="row">
+                        <div class="col s12">
+                            <h4>Ejecución de los procesos COBIT para alcanzar los objetivos de TI y de la empresa</h4>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header">Evaluar, Orientar y Supervisar</div>
+                                <div class="collapsible-body PEDomainWrapper_1">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Alinear, Planificar y Organizar</div>
+                                <div class="collapsible-body PEDomainWrapper_2">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Construir, Adquirir e Implementar</div>
+                                <div class="collapsible-body PEDomainWrapper_3">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Entrega, Servicio y Soporte</div>
+                                <div class="collapsible-body PEDomainWrapper_4">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Supervisar, Evaluar y Valorar</div>
+                                <div class="collapsible-body PEDomainWrapper_5">
+
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessExecution','AutoDiagnostic')">Anterior</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessExecution','ProcessAssessment')">Resultados</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Process Assessment -->
+<div class="hide">
+    <div class="row processAssess" id="processAssessmentTemplate">
+        <div class="input-field col s1">
+            <input type="text" class="validate black-text processId" disabled="true">
+            <label>ID</label>
+        </div>
+        <div class="input-field col s3">
+            <input type="text" class="validate black-text processName" disabled="true">
+            <label>Proceso para la gobernanza de la TI empresarial.</label>
+        </div>
+        <div class="input-field col s1">
+            <input type="text" class="validate black-text evaluatedLevel">
+            <label>Nivel Evaluado</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input type="text" class="validate black-text goalLevel">
+            <label>Nivel Objetivo</label>
+        </div>
+        <div class="input-field col s1">
+            <select class="level0">
+                <option value="N">No Logrado</option>
+                <option value="P">Parcial</option>
+                <option value="L">Gran Parte</option>
+                <option value="F">Completo</option>
+            </select>
+            <label>Nivel 0</label>
+        </div>
+        <div class="input-field col s1">
+            <select class="level1">
+                <option value="N">No Logrado</option>
+                <option value="P">Parcial</option>
+                <option value="L">Gran Parte</option>
+                <option value="F">Completo</option>
+            </select>
+            <label>Nivel 1</label>
+        </div>
+        <div class="input-field col s1">
+            <select class="level2">
+                <option value="N">No Logrado</option>
+                <option value="P">Parcial</option>
+                <option value="L">Gran Parte</option>
+                <option value="F">Completo</option>
+            </select>
+            <label>Nivel 2</label>
+        </div>
+        <div class="input-field col s1">
+            <select class="level3">
+                <option value="N">No Logrado</option>
+                <option value="P">Parcial</option>
+                <option value="L">Gran Parte</option>
+                <option value="F">Completo</option>
+            </select>
+            <label>Nivel 3</label>
+        </div>
+        <div class="input-field col s1">
+            <select class="level4">
+                <option value="N">No Logrado</option>
+                <option value="P">Parcial</option>
+                <option value="L">Gran Parte</option>
+                <option value="F">Completo</option>
+            </select>
+            <label>Nivel 4</label>
+        </div>
+        <div class="input-field col s1">
+            <select class="level5">
+                <option value="N">No Logrado</option>
+                <option value="P">Parcial</option>
+                <option value="L">Gran Parte</option>
+                <option value="F">Completo</option>
+            </select>
+            <label>Nivel 5</label>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="hide" id="processAssessmentWrapper">
+    <div class="row" id="processAssessment">
+
+        <div class="row">
+            <div class="col s12 card">
+
+                <div class="card-content">
+
+                    <div class="row">
+                        <div class="col s12">
+                            <h4>Resultados de Evaluación de Procesos</h4>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header">Evaluar, Orientar y Supervisar</div>
+                                <div class="collapsible-body PADomainWrapper_1">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Alinear, Planificar y Organizar</div>
+                                <div class="collapsible-body PADomainWrapper_2">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Construir, Adquirir e Implementar</div>
+                                <div class="collapsible-body PADomainWrapper_3">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Entrega, Servicio y Soporte</div>
+                                <div class="collapsible-body PADomainWrapper_4">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Supervisar, Evaluar y Valorar</div>
+                                <div class="collapsible-body PADomainWrapper_5">
+
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessAssessment','ProcessExecution')">Anterior</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveAssessmentData()">Guardar</a>
                 </div>
 
             </div>
@@ -465,7 +690,6 @@
 </div>
 
 <div class="container" id="mainContainer">
-
 
 </div>
 
@@ -493,6 +717,8 @@
 <script type="text/javascript" src="js/companyGoals.js"></script>
 <script type="text/javascript" src="js/ITCompanyGoals.js"></script>
 <script type="text/javascript" src="js/AutoDiagnostic.js"></script>
+<script type="text/javascript" src="js/ProcessExecution.js"></script>
+<script type="text/javascript" src="js/ProcessAssessment.js"></script>
 <script type="text/javascript" src="js/default.js"></script>
 
 </body>
