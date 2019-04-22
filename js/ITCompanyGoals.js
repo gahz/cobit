@@ -14,16 +14,34 @@ var buildITCompanyGoalsPanel = function()
     populateCobitProcessList(function (cobitPorcesses) {
 
         var optionsWrapper = $("#ITGoalCobitProcessTemplate").find("select.processList");
+        var domainGroup = Array();
 
         //first populate select
         cobitPorcesses.forEach(function (process) {
 
+            if(domainGroup[process.domain] == null)
+            {
+                var domainTitle;
+
+                switch(process.domain)
+                {
+                    case 1: domainTitle = "Evaluar, Orientar y Supervisar"; break;
+                    case 2: domainTitle = "Alinear, Planificar y Organizar"; break;
+                    case 3: domainTitle = "Construir, Adquirir e Implementar"; break;
+                    case 4: domainTitle = "Entrega, Servicio y Soporte"; break;
+                    case 5: domainTitle = "Supervisar, Evaluar y Valorar"; break;
+                }
+
+                domainGroup[process.domain] = $("<optgroup></optgroup>");
+                $(domainGroup[process.domain]).attr("label", domainTitle);
+                optionsWrapper.append(domainGroup[process.domain]);
+            }
+
             var option = $("<option></option>");
             $(option).attr("value", process.id);
-            $(option).html(process.name);
+            $(option).html(process.id+" - "+process.name);
 
-            optionsWrapper.append(option);
-
+            domainGroup[process.domain].append(option);
         });
 
         cobitProcessList=cobitPorcesses;
