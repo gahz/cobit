@@ -6,30 +6,24 @@ var buildITGoalsDefinition = function()
     $(body).removeAttr("id");
     $(body).hide();
 
-    $(mainContainer).empty();
     mainContainer.append(body);
 
     populateITGoalsDefinitionData(function(goalsData){
-
-        ITGoalsData = goalsData;
 
         goalsData.forEach(function(goal){
             addITGoalDefinition(goal.id, goal.name);
         });
 
-        $(body).show();
+        ITGoalsData = goalsData;
 
+        $(body).show();
     });
 
 };
 
 var hideITGoalsDefinition = function()
 {
-    //var body = $("#mainContainer").children();
-    //var mainContainer = $("#ITGoalsDefinitionWrapper");
-
-    //$(body).attr("id", "ITGoalsDefinition");
-    //mainContainer.append(body);
+    $("#mainContainer").empty();
 };
 
 function saveITGoalsDefinition()
@@ -58,10 +52,11 @@ function saveITGoalsDefinition()
 
     });
 
-    //updating remote data
-    firebase.database().ref('/ITGoals').set(goals);
     //updating local data
     ITGoalsData = goals;
+
+    //updating remote data
+    firebase.database().ref('/ITGoals').set(goals);
 
     M.toast({html: 'Guardado'})
 }

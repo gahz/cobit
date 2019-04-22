@@ -141,7 +141,7 @@
                 </div>
             </div>
 
-            <a class="btn-floating btn-large waves-effect waves-light red" onclick="addNewITGoalRelation(this)"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light indigo darken-3" onclick="addNewITGoalRelation(this)"><i class="material-icons">add</i></a>
         </div>
     </li>
 
@@ -203,7 +203,7 @@
 
                         </ul>
 
-                        <a class="btn-floating btn-large waves-effect waves-light red" onclick="addNewGoal(1)"><i class="material-icons">add</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light indigo darken-3" onclick="addNewGoal(1)"><i class="material-icons">add</i></a>
 
                     </div>
 
@@ -213,7 +213,7 @@
 
                         </ul>
 
-                        <a class="btn-floating btn-large waves-effect waves-light red" onclick="addNewGoal(2)"><i class="material-icons">add</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light indigo darken-3" onclick="addNewGoal(2)"><i class="material-icons">add</i></a>
 
                     </div>
 
@@ -223,7 +223,7 @@
 
                         </ul>
 
-                        <a class="btn-floating btn-large waves-effect waves-light red" onclick="addNewGoal(3)"><i class="material-icons">add</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light indigo darken-3" onclick="addNewGoal(3)"><i class="material-icons">add</i></a>
 
                     </div>
 
@@ -233,7 +233,7 @@
 
                         </ul>
 
-                        <a class="btn-floating btn-large waves-effect waves-light red" onclick="addNewGoal(4)"><i class="material-icons">add</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light indigo darken-3" onclick="addNewGoal(4)"><i class="material-icons">add</i></a>
 
                     </div>
 
@@ -256,9 +256,20 @@
 
 <!-- IT Related company goals -->
 <div class="hide">
-    <li>
-        <div class="collapsible-header"></div>
+    <li class="ITGoalWrapper" id="ITGoalWrapperTemplate">
+        <div class="collapsible-header ITGoalTitle"></div>
         <div class="collapsible-body">
+
+            <div class="row goalTitleForm">
+                <div class="input-field col s2 hide">
+                    <input type="text" class="validate black-text ITGoalID">
+                    <label>ID</label>
+                </div>
+                <div class="input-field col s2 hide">
+                    <input type="text" class="validate black-text ITGoalName">
+                    <label>ITGoalName</label>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col s12">
@@ -273,17 +284,23 @@
                 </div>
             </div>
 
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light indigo darken-3" onclick="addNewCobitProcess(this)"><i class="material-icons">add</i></a>
         </div>
     </li>
 
-    <div class="row ITGoalRelation">
+    <div class="row ITGoalCobitProcess" id="ITGoalCobitProcessTemplate">
         <div class="input-field col s8">
-            <select>
+            <select class="processList">
+            </select>
+        </div>
+        <div class="input-field col s2">
+            <select class="priority">
+                <option value="primary">Primario</option>
+                <option value="secundary">Secundario</option>
             </select>
         </div>
         <div clas="col s2">
-            <a class="waves-effect waves-light btn-large indigo darken-3">Eliminar</a>
+            <a class="waves-effect waves-light btn-large indigo darken-3" onclick="removeCobitProcess(this)">Eliminar</a>
         </div>
     </div>
 </div>
@@ -310,8 +327,8 @@
                 </div>
 
                 <div class="card-action">
-                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ITGoals','CompanyGoals')">Anterior</a>
-                    <a class="waves-effect waves-light btn-large indigo darken-3">Guardar</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ITGoals','companyGoals')">Anterior</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveITGoalsData()">Guardar</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ITGoals','AutoDiagnostic')">Siguiente</a>
                 </div>
 

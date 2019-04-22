@@ -1,50 +1,134 @@
 var buildITCompanyGoalsPanel = function()
 {
-    var body = $("#ITGoals");
+    var body = $("#ITGoals").clone();
     var mainContainer = $("#mainContainer");
 
     $(body).removeAttr("id");
+    $(body).hide();
 
-    $(mainContainer).empty();
     mainContainer.append(body);
-/*
-    populateITGoalsData(function(){
 
-        Object.keys(ITGoalsData).forEach(function(key){
-                $("#"+key).val(ITGoalsData[key]);
+    var ITGoalTemplate = $("#ITGoalWrapperTemplate");
+    var ITGoalWrapper = $(mainContainer).find("#ITGoalsDescription");
+
+    populateCobitProcessList(function (cobitPorcesses) {
+
+        var optionsWrapper = $("#ITGoalCobitProcessTemplate").find("select.processList");
+
+        //first populate select
+        cobitPorcesses.forEach(function (process) {
+
+            var option = $("<option></option>");
+            $(option).attr("value", process.id);
+            $(option).html(process.name);
+
+            optionsWrapper.append(option);
+
         });
 
-        $("#mainContainer").find('select').formSelect();
-        M.updateTextFields();
+        cobitProcessList=cobitPorcesses;
+
+        populateITGoalsDefinitionData(function (ITGoals){
+
+            ITGoals.forEach(function (ITGoal) {
+
+                var template = $(ITGoalTemplate).clone();
+                $(template).removeAttr("id");
+
+                $(template).find(".ITGoalTitle").html(ITGoal.name);
+                $(template).find(".ITGoalID").val(ITGoal.id);
+                $(template).find(".ITGoalName").val(ITGoal.name);
+
+                ITGoalWrapper.append(template);
+
+                if(ITGoal.processes)
+                {
+                    ITGoal.processes.forEach(function (goalProcess) {
+                        addCobitProcess(template, goalProcess);
+                    });
+                }
+
+            });
+
+            ITGoalsData = ITGoals;
+
+            $(mainContainer).find(".collapsible").collapsible();
+            M.updateTextFields();
+
+            $(body).show();
+        });
     });
-*/
-    $("#mainContainer").find(".collapsible").collapsible();
-    //$("#mainContainer").find('select').formSelect();
+
 };
 
 var hideITCompanyGoalsPanel = function()
 {
-    var body = $("#mainContainer").children();
-    var mainContainer = $("#ITGoalsWrapper");
+    $("#mainContainer").empty();
+    //var body = $("#mainContainer").children();
+    //var mainContainer = $("#ITGoalsWrapper");
 
-    $(body).attr("id", "ITGoals");
-    mainContainer.append(body);
+    //$(body).attr("id", "ITGoals");
+    //mainContainer.append(body);
 };
+
+
+function addNewCobitProcess(el)
+{
+    addCobitProcess($(el).parent(), null);
+}
+
+function addCobitProcess(el, process)
+{
+    var wrapper = $(el).find(".processesWrapper");
+    var template = $("#ITGoalCobitProcessTemplate").clone();
+
+    $(template).removeAttr("id");
+
+    if(process)
+    {
+        $(template).find(".processList").val(process.idProcess);
+        $(template).find(".priority").val(process.priority);
+    }
+
+    wrapper.append(template);
+    $(wrapper).find('select').formSelect();
+}
+
+function removeCobitProcess(el)
+{
+    $(el).parent().parent().remove();
+}
 
 function saveITGoalsData()
 {
-    /*
-    Object.keys(ITGoalsData).forEach(function(key){
+    var goalsWrappers = $("#mainContainer").find(".ITGoalWrapper");
+    var ITGoals = Array();
 
-        if($("#"+key).prop('tagName').toLowerCase() == "select")
-            ITGoalsData[key] = valOrParam($("#"+key).find("option:selected"), "");
-        else
-            ITGoalsData[key] = valOrParam($("#"+key), "");
+    $(goalsWrappers).each(function () {
+
+        var processWrappers = $(this).find(".ITGoalCobitProcess");
+        var ITGoalsProcesses = Array();
+
+        $(processWrappers).each(function () {
+
+            ITGoalsProcesses.push({
+                "idProcess" : $(this).find(".processList").val(),
+                "priority" : $(this).find(".priority").val()
+            });
+
+        });
+
+        ITGoals.push({
+            "id": $(this).find(".ITGoalID").val(),
+            "name": $(this).find(".ITGoalName").val(),
+            "processes" : ITGoalsProcesses
+        });
 
     });
 
+    ITGoalsData = ITGoals;
     //pushing updated data to DB
-    firebase.database().ref('/ITGoals').set(ITGoalsData);
-       */
+    firebase.database().ref('/ITGoals').set(ITGoals);
+
     M.toast({html: 'Guardado'})
 }

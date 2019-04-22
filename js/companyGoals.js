@@ -12,39 +12,43 @@ var buildCompanyGoalsPanel = function()
     //ITGoals options
     var optionsWrapper = $("#ITGoalRelationTemplate").find("select");
 
-    //first populate selects
-    ITGoalsData.forEach(function (goal) {
+    populateITGoalsDefinitionData(function (ITGoals){
 
-        var option = $("<option></option>");
-        $(option).attr("value", goal.id);
-        $(option).html(goal.name);
+        //first populate selects
+        ITGoals.forEach(function (goal) {
 
-        optionsWrapper.append(option);
+            var option = $("<option></option>");
+            $(option).attr("value", goal.id);
+            $(option).html(goal.name);
 
-    });
-
-    populateCompanyGoalsData(function(companyGoal){
-
-        companyGoalsData = companyGoal;
-
-        companyGoal.forEach(function (goal) {
-
-            var goalElement = addGoal(goal.id, goal.name, goal.category);
-
-            if(goal.ITGoals)
-            {
-                goal.ITGoals.forEach(function (ITGoal) {
-                    addITGoalRelation(goalElement, ITGoal);
-                });
-            }
+            optionsWrapper.append(option);
 
         });
 
-        $(mainContainer).find(".collapsible").collapsible();
-        M.updateTextFields();
-        $(mainContainer).find('.tabs').tabs('select','cg-fin');
-        $(body).show();
+        populateCompanyGoalsData(function(companyGoal){
+
+            companyGoalsData = companyGoal;
+
+            companyGoal.forEach(function (goal) {
+
+                var goalElement = addGoal(goal.id, goal.name, goal.category);
+
+                if(goal.ITGoals)
+                {
+                    goal.ITGoals.forEach(function (ITGoal) {
+                        addITGoalRelation(goalElement, ITGoal);
+                    });
+                }
+
+            });
+
+            $(mainContainer).find(".collapsible").collapsible();
+            M.updateTextFields();
+            $(mainContainer).find('.tabs').tabs('select','cg-fin');
+            $(body).show();
+        });
     });
+
 };
 
 var hideCompanyGoalsPanel = function()
