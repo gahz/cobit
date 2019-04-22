@@ -50,6 +50,7 @@ function populateITGoalsDefinitionData(formDataPopulation)
     });
 }
 
+
 function lookoutForProcesses()
 {
     var ref2 = firebase.database().ref('/cobitProcesses');
