@@ -3,6 +3,12 @@ var buildITCompanyGoalsPanel = function()
     var body = $("#ITGoals").clone();
     var mainContainer = $("#mainContainer");
 
+    /*Display Loading */
+    $(mainContainer).empty();
+    var loading =  $("#loading").clone();
+    $(loading).removeAttr("id");
+    mainContainer.append(loading);
+
     $(body).removeAttr("id");
     $(body).hide();
 
@@ -70,9 +76,9 @@ var buildITCompanyGoalsPanel = function()
 
             ITGoalsData = ITGoals;
 
+            $(loading).remove();
             $(mainContainer).find(".collapsible").collapsible();
             M.updateTextFields();
-
             $(body).show();
         });
     });
@@ -93,6 +99,7 @@ var hideITCompanyGoalsPanel = function()
 function addNewCobitProcess(el)
 {
     addCobitProcess($(el).parent(), null);
+    $("#mainContainer").find('select').formSelect();
 }
 
 function addCobitProcess(el, process)
@@ -109,7 +116,6 @@ function addCobitProcess(el, process)
     }
 
     wrapper.append(template);
-    $(wrapper).find('select').formSelect();
 }
 
 function removeCobitProcess(el)

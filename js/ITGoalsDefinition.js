@@ -3,6 +3,12 @@ var buildITGoalsDefinition = function()
     var body = $("#ITGoalsDefinition").clone();
     var mainContainer = $("#mainContainer");
 
+    /*Display Loading */
+    $(mainContainer).empty();
+    var loading =  $("#loading").clone();
+    $(loading).removeAttr("id");
+    mainContainer.append(loading);
+
     $(body).removeAttr("id");
     $(body).hide();
 
@@ -16,6 +22,7 @@ var buildITGoalsDefinition = function()
 
         ITGoalsData = goalsData;
 
+        $(loading).remove();
         $(body).show();
     });
 

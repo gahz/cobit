@@ -3,10 +3,15 @@ var buildCompanyGoalsPanel = function()
     var body = $("#companyGoals");
     var mainContainer = $("#mainContainer");
 
+    /*Display Loading */
+    $(mainContainer).empty();
+    var loading =  $("#loading").clone();
+    $(loading).removeAttr("id");
+    mainContainer.append(loading);
+
     $(body).removeAttr("id");
     $(body).hide();
 
-    $(mainContainer).empty();
     mainContainer.append(body);
 
     //ITGoals options
@@ -35,14 +40,29 @@ var buildCompanyGoalsPanel = function()
 
                 if(goal.ITGoals)
                 {
+                    //var wrapper = $(goalElement).parent().find(".relationsWrapper");
+                    //var template = $("#ITGoalRelationTemplate");
+                        //.clone();
+                    //$(template).removeAttr("id");
+
+
                     goal.ITGoals.forEach(function (ITGoal) {
+                        /*
+                        var t = $(template).clone();
+                        $(t).removeAttr("id");
+
+                        $(t).find("select").val(ITGoal);
+                        wrapper.append(t);
+                        */
                         addITGoalRelation(goalElement, ITGoal);
                     });
                 }
 
             });
 
+            $(loading).remove();
             $(mainContainer).find(".collapsible").collapsible();
+            $(mainContainer).find('select').formSelect();
             M.updateTextFields();
             $(mainContainer).find('.tabs').tabs('select','cg-fin');
             $(body).show();
@@ -106,7 +126,8 @@ function updateGoalTitle(el)
 
 function addNewITGoalRelation(el)
 {
-    addITGoalRelation(el, null)
+    addITGoalRelation(el, null);
+    $("#mainContainer").find('select').formSelect();
 }
 
 function addITGoalRelation(el, ITGoalId)
@@ -119,7 +140,6 @@ function addITGoalRelation(el, ITGoalId)
         $(template).find("select").val(ITGoalId);
 
     wrapper.append(template);
-    $(wrapper).find('select').formSelect();
 }
 
 function removeITGoalRelation(el)

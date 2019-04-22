@@ -3,6 +3,12 @@ var buildAutoDiagnosticPanel = function()
     var body = $("#AutoDiagnostic").clone();
     var mainContainer = $("#mainContainer");
 
+    /*Display Loading */
+    $(mainContainer).empty();
+    var loading =  $("#loading").clone();
+    $(loading).removeAttr("id");
+    mainContainer.append(loading);
+
     $(body).removeAttr("id");
     $(body).hide();
 
@@ -64,6 +70,7 @@ var buildAutoDiagnosticPanel = function()
             });
 
             cobitProcessList = processList;
+            $(loading).remove();
             $(body).show();
             M.updateTextFields();
             $("#mainContainer").find('select').formSelect();
