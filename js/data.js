@@ -7,17 +7,17 @@ var companyGoalsData;
 function populateCompanyGoalsData(formDataPopulation)
 {
     return firebase.database().ref('/companyGoals').once("value").then(function (snapshot) {
-        companyGoalsData = snapshot.val();
-        console.log(companyGoalsData);
-        formDataPopulation();
+        //companyGoalsData = snapshot.val();
+        //console.log(companyGoalsData);
+        formDataPopulation(snapshot.val());
     });
 }
 
 function populateITGoalsData(formDataPopulation)
 {
     return firebase.database().ref('/ITGoals').once("value").then(function (snapshot) {
-        ITGoalsData = snapshot.val();
-        console.log(ITGoalsData);
+        //ITGoalsData = snapshot.val();
+        //console.log(ITGoalsData);
         formDataPopulation();
     });
 }
@@ -34,9 +34,9 @@ function populateAutoDiagnosticData(formDataPopulation)
 function populateITGoalsDefinitionData(formDataPopulation)
 {
     return firebase.database().ref('/ITGoals').once("value").then(function (snapshot) {
-        ITGoalsData = snapshot.val();
-        console.log(ITGoalsData);
-        formDataPopulation(ITGoalsData);
+        //ITGoalsData = snapshot.val();
+        //console.log(ITGoalsData);
+        formDataPopulation(snapshot.val());
     });
 }
 

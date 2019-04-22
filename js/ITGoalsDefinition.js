@@ -3,20 +3,22 @@ var buildITGoalsDefinition = function()
     var body = $("#ITGoalsDefinition").clone();
     var mainContainer = $("#mainContainer");
 
-    $(body).hide();
-
     $(body).removeAttr("id");
+    $(body).hide();
 
     $(mainContainer).empty();
     mainContainer.append(body);
 
     populateITGoalsDefinitionData(function(goalsData){
 
+        ITGoalsData = goalsData;
+
         goalsData.forEach(function(goal){
             addITGoalDefinition(goal.id, goal.name);
         });
 
         $(body).show();
+
     });
 
 };
@@ -56,7 +58,10 @@ function saveITGoalsDefinition()
 
     });
 
+    //updating remote data
     firebase.database().ref('/ITGoals').set(goals);
+    //updating local data
+    ITGoalsData = goals;
 
     M.toast({html: 'Guardado'})
 }

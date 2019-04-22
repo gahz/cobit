@@ -4,32 +4,47 @@ var buildCompanyGoalsPanel = function()
     var mainContainer = $("#mainContainer");
 
     $(body).removeAttr("id");
+    $(body).hide();
 
     $(mainContainer).empty();
     mainContainer.append(body);
-/*
-    populateCompanyGoalsData(function(){
 
-        Object.keys(companyGoalsData["cg-fin"]).forEach(function(key){
-            $("#"+key).val(companyGoalsData["cg-fin"][key]);
-        });
+    //ITGoals options
+    var optionsWrapper = $("#ITGoalRelationTemplate").find("select");
 
-        Object.keys(companyGoalsData["cg-cli"]).forEach(function(key){
-            $("#"+key).val(companyGoalsData["cg-cli"][key]);
-        });
+    //first populate selects
+    ITGoalsData.forEach(function (goal) {
 
-        Object.keys(companyGoalsData["cg-int"]).forEach(function(key){
-            $("#"+key).val(companyGoalsData["cg-int"][key]);
-        });
+        var option = $("<option></option>");
+        $(option).attr("value", goal.id);
+        $(option).html(goal.name);
 
-        Object.keys(companyGoalsData["cg-apr"]).forEach(function(key){
-            $("#"+key).val(companyGoalsData["cg-apr"][key]);
-        });
+        optionsWrapper.append(option);
 
-        M.updateTextFields();
     });
-*/
-    $("#mainContainer").find(".collapsible").collapsible();
+
+    populateCompanyGoalsData(function(companyGoal){
+
+        companyGoalsData = companyGoal;
+
+        companyGoal.forEach(function (goal) {
+
+            var goalElement = addGoal(goal.id, goal.name, goal.category);
+
+            if(goal.ITGoals)
+            {
+                goal.ITGoals.forEach(function (ITGoal) {
+                    addITGoalRelation(goalElement, ITGoal);
+                });
+            }
+
+        });
+
+        $(mainContainer).find(".collapsible").collapsible();
+        M.updateTextFields();
+        $(mainContainer).find('.tabs').tabs('select','cg-fin');
+        $(body).show();
+    });
 };
 
 var hideCompanyGoalsPanel = function()
@@ -37,56 +52,45 @@ var hideCompanyGoalsPanel = function()
     var body = $("#mainContainer").children();
     var mainContainer = $("#companyGoalsWrapper");
 
+    $("#companyGoalCategory_1").empty();
+
+    $("#companyGoalCategory_2").empty();
+
+    $("#companyGoalCategory_3").empty();
+
+    $("#companyGoalCategory_4").empty();
+
     $(body).attr("id", "companyGoals");
     mainContainer.append(body);
 };
 
-
-function saveCompanyGoalsData()
+function addGoal(id, name, category)
 {
-    //updating data
-/*
-    Object.keys(companyGoalsData["cg-fin"]).forEach(function(key){
-        companyGoalsData["cg-fin"][key] =  valOrParam($("#"+key), "");
-    });
-
-    Object.keys(companyGoalsData["cg-cli"]).forEach(function(key){
-        companyGoalsData["cg-cli"][key] =  valOrParam($("#"+key), "");
-    });
-
-    Object.keys(companyGoalsData["cg-int"]).forEach(function(key){
-        companyGoalsData["cg-int"][key] =  valOrParam($("#"+key), "");
-    });
-
-    Object.keys(companyGoalsData["cg-apr"]).forEach(function(key){
-        companyGoalsData["cg-apr"][key] =  valOrParam($("#"+key), "");
-    });
-
-    //pushing updated data to DB
-    firebase.database().ref('/companyGoals').set(companyGoalsData);
-*/
-    M.toast({html: 'Guardado'})
-}
-
-
-function addGoal(el, tab)
-{
-    var wrapper = $(el).parent().find("ul");
+    var wrapper = $("#companyGoalCategory_"+category);
     var template = $("#goalTemplate").clone();
 
-    //Getting amount of goals for id generation
-    var goalSequence = $(wrapper).find("li").length+1;
+    $(template).find(".goalTemplateTitle").html(name);
+    $(template).find(".goalID").val(id);
+    var goalNameForm = $(template).find(".goalName").val(name);
 
     //Generating id and for, so the label of the fields can work properly
     var goalNameForm = $(template).find(".goalName").parent();
-    $(goalNameForm).find("input").attr("id", tab+"-"+goalSequence+"-goalName");
-    $(goalNameForm).find("label").attr("for", tab+"-"+goalSequence+"-goalName");
+    $(goalNameForm).find("input").attr("id", id+"-goalName");
+    $(goalNameForm).find("label").attr("for", id+"-goalName");
 
     //Removing templates id attribute
     $(template).removeAttr("id");
 
     //Adding template to wrapper
     wrapper.append(template);
+
+    return template;
+}
+
+function addNewGoal(category)
+{
+    var newGoalId = firebase.database().ref().child('companyGoals').push().key;
+    addGoal(newGoalId, "", category);
 
     $("#mainContainer").find(".collapsible").collapsible();
 }
@@ -96,9 +100,72 @@ function updateGoalTitle(el)
     $(el).parent().parent().parent().parent().find(".goalTemplateTitle").html($(el).val());
 }
 
-function addITGoalRelation(el)
+function addNewITGoalRelation(el)
+{
+    addITGoalRelation(el, null)
+}
+
+function addITGoalRelation(el, ITGoalId)
 {
     var wrapper = $(el).parent().find(".relationsWrapper");
     var template = $("#ITGoalRelationTemplate").clone();
     $(template).removeAttr("id");
+
+    if(ITGoalId)
+        $(template).find("select").val(ITGoalId);
+
+    wrapper.append(template);
+    $(wrapper).find('select').formSelect();
+}
+
+function removeITGoalRelation(el)
+{
+    $(el).parent().parent().remove();
+}
+
+function saveCompanyGoalsData()
+{
+    //updating data
+    var companyGoals = Array();
+
+    $("#companyGoalCategory_1").find(".companyGoalWrapper").each(function () {
+        companyGoals.push(getCompanyGoalsData(this, 1));
+    });
+
+    $("#companyGoalCategory_2").find(".companyGoalWrapper").each(function () {
+        companyGoals.push(getCompanyGoalsData(this, 2));
+    });
+
+    $("#companyGoalCategory_3").find(".companyGoalWrapper").each(function () {
+        companyGoals.push(getCompanyGoalsData(this, 3));
+    });
+
+    $("#companyGoalCategory_4").find(".companyGoalWrapper").each(function () {
+        companyGoals.push(getCompanyGoalsData(this, 4));
+    });
+
+    companyGoalsData = companyGoals;
+
+    //pushing updated data to DB
+    firebase.database().ref('/companyGoals').set(companyGoals);
+
+    M.toast({html: 'Guardado'})
+}
+
+function getCompanyGoalsData(CompanyGoalElement, category)
+{
+    var ITRelatedGoalsId = Array();
+
+    $(CompanyGoalElement).find(".ITGoalRelation").each(function () {
+        ITRelatedGoalsId.push($(this).find("select").val());
+    });
+
+    var goalData = {
+        "id": $(CompanyGoalElement).find(".goalID").val(),
+        "name": $(CompanyGoalElement).find(".goalName").val(),
+        "category": category,
+        "ITGoals": ITRelatedGoalsId
+    };
+
+    return goalData;
 }
