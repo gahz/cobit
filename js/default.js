@@ -29,7 +29,7 @@ function updatePosition(lastPosition, nextPosition)
 
 $( document ).ready(function(){
     //default position is welcome panel
-    updatePosition(null, "ProcessExecution");
+    updatePosition(null, "welcomePanel");
 
     setTimeout(function(){ $('.input-field label').addClass('active'); }, 1);
     $(".tabs").tabs();
