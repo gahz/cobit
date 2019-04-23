@@ -476,7 +476,7 @@
             <label>Proceso para la gobernanza de la TI empresarial.</label>
         </div>
         <div clas="col s2">
-            <a class="waves-effect waves-light btn-large indigo darken-3 processExecution">Ejecutar</a>
+            <a class="waves-effect waves-light btn-large indigo darken-3 processExecutor">Ejecutar</a>
         </div>
     </div>
 </div>
@@ -689,6 +689,102 @@
     </div>
 </div>
 
+<!-- Executing Process -->
+<div class="hide">
+
+    <div class="row processPurposeWrapper" id="processPurposeTemplate">
+        <div class="row">
+            <div class="col s12">
+                <h6 class="purposeTitle"></h6>
+                <div class="divider"></div>
+            </div>
+        </div>
+
+        <div class="row processCriteriaWrapper">
+
+        </div>
+    </div>
+
+    <div class="row processCriteria" id="processCriteriaTemplate">
+        <div class="input-field col s8">
+            <input type="text" class="validate black-text processCriteria" disabled="true">
+        </div>
+        <label>
+            <input type="checkbox" class="processCompleted"/>
+            <span>Completo</span>
+        </label>
+    </div>
+
+</div>
+
+<div class="hide" id="executingProcessWrapper">
+    <div class="row" id="executingProcess">
+
+        <div class="row">
+            <div class="col s12 card">
+
+                <div class="card-content">
+
+                    <div class="row">
+                        <div class="col s12">
+                            <h5 class="processTitle"></h5>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header">Nivel 0 - Incompleto</div>
+                                <div class="collapsible-body executionLevel0">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Nivel 1 - Ejecutado</div>
+                                <div class="collapsible-body executionLevel1">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Nivel 2 - Gestionado</div>
+                                <div class="collapsible-body executionLevel2">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Nivel 3 - Establecido</div>
+                                <div class="collapsible-body executionLevel3">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Nivel 4 - Predecible</div>
+                                <div class="collapsible-body executionLevel4">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Nivel 5 - Optimizado</div>
+                                <div class="collapsible-body executionLevel5">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition(null,'ProcessExecution')">Anterior</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveProcessExec()">Guardar</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container" id="mainContainer">
 
 </div>
@@ -696,7 +792,7 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
 <script>
     // Initialize Firebase
     var config = {
@@ -719,6 +815,7 @@
 <script type="text/javascript" src="js/AutoDiagnostic.js"></script>
 <script type="text/javascript" src="js/ProcessExecution.js"></script>
 <script type="text/javascript" src="js/ProcessAssessment.js"></script>
+<script type="text/javascript" src="js/ExecuteProcess.js"></script>
 <script type="text/javascript" src="js/default.js"></script>
 
 </body>

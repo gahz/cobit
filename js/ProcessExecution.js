@@ -45,6 +45,9 @@ var buildProcessExecutionPanel = function()
 
                     $(template).find(".processId").val(process.id);
                     $(template).find(".processName").val(process.name);
+                    $(template).find(".processExecutor").click(function(){
+                       executeProcess(process);
+                    });
 
                     wrapper.append(template);
                 }
