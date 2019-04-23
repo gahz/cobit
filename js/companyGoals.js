@@ -126,13 +126,13 @@ function updateGoalTitle(el)
 
 function addNewITGoalRelation(el)
 {
-    addITGoalRelation(el, null);
+    addITGoalRelation(el.parent(), null);
     $("#mainContainer").find('select').formSelect();
 }
 
 function addITGoalRelation(el, ITGoalId)
 {
-    var wrapper = $(el).parent().find(".relationsWrapper");
+    var wrapper = $(el).find(".relationsWrapper");
     var template = $("#ITGoalRelationTemplate").clone();
     $(template).removeAttr("id");
 
