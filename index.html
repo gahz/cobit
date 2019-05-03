@@ -409,9 +409,24 @@
     <div class="modal-content">
         <div class="row">
             <div class="col s12">
-                <h5>Prioridad de Procesos</h5>
+                <h5>Importancia de Procesos</h5>
                 <div class="divider"></div>
-                <canvas id="AutoDiagnosticReportGraph"></canvas>
+                <canvas id="AutoDiagnosticReportGraphImportance"></canvas>
+            </div>
+            <div class="col s12">
+                <h5>Rendimiento de Procesos</h5>
+                <div class="divider"></div>
+                <canvas id="AutoDiagnosticReportGraphPerformance"></canvas>
+            </div>
+            <div class="col s12">
+                <h5>Formalidad de Procesos</h5>
+                <div class="divider"></div>
+                <canvas id="AutoDiagnosticReportGraphFormality"></canvas>
+            </div>
+            <div class="col s12">
+                <h5>Procesos Auditados</h5>
+                <div class="divider"></div>
+                <canvas id="AutoDiagnosticReportGraphAudited"></canvas>
             </div>
         </div>
 
@@ -623,6 +638,22 @@
 </div>
 
 <!-- Process Assessment -->
+<div id="AssessmentReport" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h5>Resultado Estadistico de PAM</h5>
+                <div class="divider"></div>
+                <canvas id="AssessmentPAM"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-large indigo darken-3">Cerrar</a>
+    </div>
+</div>
+
 <div class="hide">
     <div class="row processAssess" id="processAssessmentTemplate">
         <div class="input-field col s1">
@@ -758,6 +789,7 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessAssessment','ProcessExecution')">Anterior</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveAssessmentData()">Guardar</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderAssessmentReport()" href="#AssessmentReport">Reportes</a>
                 </div>
 
             </div>
