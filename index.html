@@ -562,7 +562,7 @@
             <input type="text" class="validate black-text processId" disabled="true">
             <label>ID</label>
         </div>
-        <div class="input-field col s5">
+        <div class="input-field col s6">
             <input type="text" class="validate black-text processName" disabled="true">
             <label>Proceso para la gobernanza de la TI empresarial.</label>
         </div>
@@ -629,6 +629,7 @@
 
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessExecution','AutoDiagnostic')">Anterior</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderAssessmentReport()" href="#AssessmentReport">Reportes</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessExecution','ProcessAssessment')">Resultados</a>
                 </div>
 
@@ -788,7 +789,9 @@
 
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessAssessment','ProcessExecution')">Anterior</a>
+                    <!--
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveAssessmentData()">Guardar</a>
+                    !-->
                     <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderAssessmentReport()" href="#AssessmentReport">Reportes</a>
                 </div>
 
@@ -798,6 +801,22 @@
 </div>
 
 <!-- Executing Process -->
+<div id="ProcessExecutionReport" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h5>Progreso de Ejecución</h5>
+                <div class="divider"></div>
+                <canvas id="ExecutionReport"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-large indigo darken-3">Cerrar</a>
+    </div>
+</div>
+
 <div class="hide">
 
     <div class="row processPurposeWrapper" id="processPurposeTemplate">
@@ -888,6 +907,7 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition(null,'ProcessExecution')">Anterior</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveProcessExec()">Guardar</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="buildExecutionReport()" href="#ProcessExecutionReport">Reportes</a>
                 </div>
 
             </div>

@@ -37,7 +37,12 @@ function barChartRenderer(data, labels, wrapper, datasetLabel, borderColor, bgCo
         options: {
             scales: {
                 xAxes: [{
-                    stacked: true
+                    stacked: true,
+                    ticks: {
+                        suggestedMin: 0,
+                        suggestedMax: 5,
+                        stepSize: 1
+                    }
                 }],
                     yAxes: [{
                     stacked: true
@@ -47,6 +52,67 @@ function barChartRenderer(data, labels, wrapper, datasetLabel, borderColor, bgCo
                 display: true,
                 text: datasetLabel
             }*/
+        }
+    });
+}
+
+/*
+function verticalBarChartRenderer(data, labels, wrapper, datasetLabel, bgColor, borderColor)
+{
+    var ctx = document.getElementById(wrapper).getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: datasetLabel,
+                data: data,
+                borderColor: borderColor,
+                backgroundColor: bgColor
+            }]
+        },options: {
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }]
+            }
+        }
+    });
+}*/
+
+function processExecutionRenderer(data, labels, wrapper, datasetLabel, bgColor, borderColor)
+{
+    var ctx = document.getElementById(wrapper).getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: datasetLabel,
+                data: data,
+                borderColor: borderColor,
+                backgroundColor: bgColor
+            }]
+        },options: {
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        stepSize: 10
+                    }
+                }]
+            }
         }
     });
 }
@@ -62,8 +128,8 @@ function renderCompanyGoalsMainGraph(data, wrapper)
             datasets: [{
                 label: "Cantidad de Metas Corporativas",
                 data: [data["1"].length, data["2"].length, data["3"].length, data["4"].length],
-                borderColor: ['rgba(0, 0, 192, 1)','rgba(192, 0, 0, 1)','rgba(0, 192, 0, 1)','rgba(176,196,222, 1)'],
-                backgroundColor: ['rgba(0, 0, 192, 0.2)', 'rgba(192, 0, 0, 0.2)','rgba(192, 0, 0, 0.2)', 'rgba(176,196,222, 0.2)']
+                borderColor: ['rgba(0, 0, 192, 1)','rgba(192, 0, 0, 1)','rgba(0, 192, 0, 1)','rgba(0,0,0, 1)'],
+                backgroundColor: ['rgba(0, 0, 192, 0.2)', 'rgba(192, 0, 0, 0.2)','rgba(0, 192, 0, 0.2)', 'rgba(0,0,0, 0.2)']
             }]
         },options: {
             scales: {
@@ -71,7 +137,10 @@ function renderCompanyGoalsMainGraph(data, wrapper)
                     stacked: true
                 }],
                 yAxes: [{
-                    stacked: true
+                    stacked: true,
+                    ticks: {
+                        stepSize: 1
+                    }
                 }]
             }
         }
@@ -97,10 +166,16 @@ function renderCompanyGoalsReports()
     });
 
     renderCompanyGoalsMainGraph(dataGraph, "companyGoalsReportsGraph0");
+    /*
+    verticalBarChartRenderer([dataGraph["1"].length, dataGraph["2"].length, dataGraph["3"].length, dataGraph["4"].length],
+                            ["Financiera","Cliente", "Interna", "Aprendizaje"], "companyGoalsReportsGraph0", "Cantidad de Metas Corporativas",
+                            ['rgba(0, 0, 192, 0.2)', 'rgba(192, 0, 0, 0.2)','rgba(0, 192, 0, 0.2)', 'rgba(0,0,0, 0.2)'],
+                            ['rgba(0, 0, 192, 1)','rgba(192, 0, 0, 1)','rgba(0, 192, 0, 1)','rgba(0,0,0, 1)']);
+                            */
     barChartRenderer(dataGraph["1"], labelsGraph["1"], "companyGoalsReportsGraph1", "Financiera", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
     barChartRenderer(dataGraph["2"], labelsGraph["2"], "companyGoalsReportsGraph2", "Cliente", 'rgba(192, 0, 0, 1)', 'rgba(192, 0, 0, 0.2)');
     barChartRenderer(dataGraph["3"], labelsGraph["3"], "companyGoalsReportsGraph3", "Interna", 'rgba(0, 192, 0, 1)', 'rgba(0, 192, 0, 0.2)');
-    barChartRenderer(dataGraph["4"], labelsGraph["4"], "companyGoalsReportsGraph4", "Aprendizaje", 'rgba(176,196,222, 1)', 'rgba(176,196,222, 0.2)');
+    barChartRenderer(dataGraph["4"], labelsGraph["4"], "companyGoalsReportsGraph4", "Aprendizaje", 'rgba(0,0,0, 1)', 'rgba(0,0,0, 0.2)');
 }
 
 function renderITRGoalsReports()
@@ -161,7 +236,7 @@ function renderAssessmentReport()
 
     cobitProcessList.forEach(function (process) {
 
-        labelsGraph.push(process.id+" "+process.name);
+        labelsGraph.push(process.id+" - "+process.name);
         var level = 0;
 
         if(process.assessment.level1=="F")
@@ -183,4 +258,10 @@ function renderAssessmentReport()
     });
 
     barChartRenderer(dataGraph, labelsGraph, "AssessmentPAM", "Nivel", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
+}
+
+function renderExecutionReport(data)
+{
+    processExecutionRenderer(data, ["Nivel 0", "Nivel 1","Nivel 2", "Nivel 3", "Nivel 4", "Nivel 5"], "ExecutionReport", "Porcentaje de Avance", 'rgba(0, 0, 192, 0.2)', 'rgba(0, 0, 192, 1)');
+    //barChartRenderer(data, ["Nivel 1"], "AssessmentPAM", "Nivel", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
 }

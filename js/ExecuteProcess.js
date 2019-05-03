@@ -63,11 +63,11 @@ function executeProcess(process)
 
 }
 
+
 function saveProcessExec()
 {
     var mainContainer = $("#mainContainer");
     var execution = Array();
-    var assessment = Array();
 
     for(var i=0; i<6; i++)
     {
@@ -80,9 +80,6 @@ function saveProcessExec()
 
             var purposeTitle = $(this).find(".purposeTitle").html();
             var criteria = Array();
-
-            var totalCriterias=0;
-            var totalCompletedCriterias=0;
 
             $(this).find(".processCriteriaFormWrapper").each(function () {
 
@@ -104,21 +101,77 @@ function saveProcessExec()
         });
 
         execution["level"+i] = purpose;
-
-//        var levelAssesment = (totalCompletedCriterias*100)/totalCriterias;
-
-//        if(levelAssesment>)
-
-
     }
 
+    var levelsCompletionPercentage = getExecutionPercentage(execution);
+
+    //Updating process assessment
+    for(var i=0; i<6; i++)
+        lastProcess.assessment["level"+i] = getCompletionLevel(levelsCompletionPercentage[i]);
+
+    //Updating process
+    lastProcess.execution = execution;
+
+    //Searching process for db update
     cobitProcessList.forEach(function (cProcess) {
 
         if(cProcess.id == lastProcess.id)
-            cProcess.execution = execution;
+            cProcess = lastProcess;
     });
 
+    //updating db
     firebase.database().ref('/cobitProcesses').set(cobitProcessList);
 
     M.toast({html: 'Guardado'});
+}
+
+
+function getExecutionPercentage(execution)
+{
+    var levelPercentage = Array();
+
+    for(var i=0; i<6; i++)
+    {
+        if(!levelPercentage[i])
+            levelPercentage[i] = 0;
+
+        var criteriaCompleted = 0;
+        var criteriaAmt = 0;
+
+        execution["level"+i].forEach(function (purpose) {
+
+            purpose.criteria.forEach(function (criteria) {
+
+                criteriaAmt++;
+
+                if(criteria.completed == true)
+                    criteriaCompleted++;
+
+            });
+
+        });
+
+        levelPercentage[i] = ((criteriaCompleted*100)/(criteriaAmt));
+    }
+
+    return levelPercentage;
+}
+
+function getCompletionLevel(percentage)
+{
+    if(percentage>=0 && percentage<=15)
+        return "N";
+    else if(percentage>15 && percentage<=50)
+        return "P";
+    else if(percentage>50 && percentage<=85)
+        return "L";
+    else if(percentage>85 && percentage<=100)
+        return "F";
+    else
+        return "N";
+}
+
+function buildExecutionReport()
+{
+    renderExecutionReport(getExecutionPercentage(lastProcess.execution));
 }
