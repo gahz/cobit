@@ -4,6 +4,7 @@ var autoDiagnosticData=null;
 var ITGoalsData=null;
 var companyGoalsData=null;
 var cobitProcessList=null;
+var companyInformation = null;
 
 function populateCompanyGoalsData(formDataPopulation)
 {
@@ -11,6 +12,15 @@ function populateCompanyGoalsData(formDataPopulation)
         //companyGoalsData = snapshot.val();
         //console.log(companyGoalsData);
         formDataPopulation(snapshot.val());
+    });
+}
+
+function populateCompanyInfo(dataPopulationTrigger)
+{
+    return firebase.database().ref('/companyInfo').once("value").then(function (snapshot) {
+        //companyGoalsData = snapshot.val();
+        //console.log(companyGoalsData);
+        dataPopulationTrigger(snapshot.val());
     });
 }
 

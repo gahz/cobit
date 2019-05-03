@@ -96,6 +96,10 @@ var hideITCompanyGoalsPanel = function()
     //mainContainer.append(body);
 };
 
+function removeGoal(el)
+{
+    $(el).parent().parent().parent().parent().remove();
+}
 
 function addNewCobitProcess(el)
 {
