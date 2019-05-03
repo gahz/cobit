@@ -1760,19 +1760,282 @@
       "assessment": {
         "evaluatedLevel": "",
         "goalLevel": "",
-        "level0": "P",
-        "level1": "L",
+        "level0": "F",
+        "level1": "F",
         "level2": "F",
         "level3": "N",
-        "level4": "L",
-        "level5": "F"
+        "level4": "N",
+        "level5": "N"
+      },
+      "diagnostic": {
+        "audited": "N",
+        "formality": "N",
+        "importance": "5",
+        "performance": "4",
+        "responsible": "gerald"
+      },
+      "domain": 1,
+      "execution": {
+        "level0": [
+          {
+            "criteria": [
+              {
+                "completed": true,
+                "title": "A este nivel, hay poca o ninguna evidencia de haber alcanzado el propósito del proceso."
+              }
+            ],
+            "title": "El proceso no está implementado o no llega a alcanzar su propósito."
+          }
+        ],
+        "level1": [
+          {
+            "criteria": [
+              {
+                "completed": true,
+                "title": "EDM01-O1 Modelo estratégico de toma de decisiones para que las TI sean efectivas y estén alineadas con el entorno externo e interno de la empresa y los requerimientos de las partes interesadas."
+              },
+              {
+                "completed": true,
+                "title": "EDM01-O2 Garantizar que el sistema de gobierno para TI está incorporado al gobierno corporativo."
+              },
+              {
+                "completed": true,
+                "title": "EDM01-O3 Obtener garantías de que el sistema de gobierno para TI está operando de manera efectiva."
+              }
+            ],
+            "title": "PA 1.1 El proceso implementado logra su proposito"
+          }
+        ],
+        "level2": [
+          {
+            "criteria": [
+              {
+                "completed": true,
+                "title": "a) Los objetivos para el desempeño del proceso son identificados"
+              },
+              {
+                "completed": true,
+                "title": "b) el desempeño del proceso es planeado y monitoreado"
+              },
+              {
+                "completed": true,
+                "title": "c) Desempeño del proceso es ajustado para cumplir con el plan"
+              },
+              {
+                "completed": true,
+                "title": "d) las responsabilidades y autoridades para el desempeño del proceso son definidas, asignadas y comunicadas"
+              },
+              {
+                "completed": true,
+                "title": "e) Recursos e informacion necesaria para el desempeño del proceso son identificadas, hechas disponibles, posicionados y usados"
+              },
+              {
+                "completed": true,
+                "title": "f) Interfaces entre las partes involucradas son gestionadas para asegurar la comunicación efectiva y la asignacion clara de responsabilidades"
+              }
+            ],
+            "title": "PA 2.1 Gestion del desempeño - Una medida de la extencion por la cual el desempeño de un proceso es gestionado"
+          },
+          {
+            "criteria": [
+              {
+                "completed": true,
+                "title": "a) Requisitos para los productos de trabajo del proceso se definen."
+              },
+              {
+                "completed": true,
+                "title": "b) Requisitos para la documentación y el control de los productos de trabajo se definen."
+              },
+              {
+                "completed": true,
+                "title": "c) los productos de trabajo están debidamente identificados, documentados y controlados."
+              },
+              {
+                "completed": true,
+                "title": "d) los productos de trabajo se revisarán de acuerdo con los planes previstos, y se ajustan si es necesario para cumplir con los requisitos."
+              }
+            ],
+            "title": "PA 2.2 Trabajo de Gestión de Producto - Una medida del grado en que los productos de trabajo producidos por el proceso se gestionan adecuadamente. Los productos de trabajo (o salidas del proceso) se definen y controlan."
+          }
+        ],
+        "level3": [
+          {
+            "criteria": [
+              {
+                "completed": false,
+                "title": "a) Un proceso estándar, incluyendo guías de adaptación adecuadas, se define que describe los elementos fundamentales que deben ser incorporados en un proceso definido."
+              },
+              {
+                "completed": false,
+                "title": "b) Se determina la secuencia e interacción de los procesos estándar con otros procesos."
+              },
+              {
+                "completed": false,
+                "title": "c) Las competencias requeridas y las funciones para llevar a cabo un proceso se identifican como parte del proceso estándar."
+              },
+              {
+                "completed": false,
+                "title": "d) La infraestructura requerida y ambiente de trabajo para la realización de un proceso se identifican como parte del proceso estándar."
+              },
+              {
+                "completed": false,
+                "title": "e) Se determinan los métodos adecuados para el seguimiento de la eficacia y adecuación del proceso."
+              }
+            ],
+            "title": "PA 3.1 Definición de proceso - Una medida de la extensión a la que se mantiene un proceso estándar para apoyar el despliegue del proceso definido."
+          },
+          {
+            "criteria": [
+              {
+                "completed": false,
+                "title": "a) Un proceso definido es desplegado en base a un proceso estandar apropiadamente seleccionado y/o adaptado."
+              },
+              {
+                "completed": false,
+                "title": "b) Los roles, resonsabilidades y autoridades requeridas para la ejecucion de un proceso definido son asignados y comunicados."
+              },
+              {
+                "completed": false,
+                "title": "c) El personal que ejecuta los procesos definidos son competentes en base a una educacion apropiada, entrenamiento y experiencia"
+              },
+              {
+                "completed": false,
+                "title": "d) Los recursos requeridos y la informacion ecesaria para la ejecucion de los procesos definidos se hacen disponibiles y usados"
+              },
+              {
+                "completed": false,
+                "title": "e) La infraestructura y ambiente de trabajo requeridos para la ejecucion de un proceso definido son hechos disponibles, manejados y mantenidos"
+              },
+              {
+                "completed": false,
+                "title": "f) Los datos apropiados son recolectados y analisados en base al entendimiento del comportamiento del proceso para la evaluacion constante del proceso"
+              }
+            ],
+            "title": "PA 3.2 Despliegue del proceso - Una medida de extension por la cual un proceso estandar es efectivamente desplegado como un proceso definido para alcanzar las salidas esperadas del proceso"
+          }
+        ],
+        "level4": [
+          {
+            "criteria": [
+              {
+                "completed": false,
+                "title": "a) Las necesidades de informacion que soportan los objetivos relevantes del negocio son establecidos"
+              },
+              {
+                "completed": false,
+                "title": "b) Las medidas de los objetivos de los procesos son derivados de los requerimientos de informacion de los procesos"
+              },
+              {
+                "completed": false,
+                "title": "c) Los objetivos cuantitativos para la ejecucion del proceso en soporte a los objetivos relevantes del negocios son establecidos"
+              },
+              {
+                "completed": false,
+                "title": "d) Las medidas y frecuencias de los indicadores a medir son identificados y definidos en linea con los objetivos del medimiento de los  procesos y objetivos cuantitavios para el desempeño de los procesos"
+              },
+              {
+                "completed": false,
+                "title": "e) Los resultados de las medidas son recolectados, analisados y reportados para monitorear cual es el alcance en que los objetivos cuantitativos para el desempeño de los procesos son alcanzados"
+              },
+              {
+                "completed": false,
+                "title": "f) Los resultados de las mediciones son usados para caracterizar el desempeño del proceso"
+              }
+            ],
+            "title": "PA 4.1 Medicion del proceso - Una medida de extension por la cual los resultados de la medicion son usados para asegurarse que el desempeño del proceso apoye el logro de sus objetivos relevantes para el apoyo de los objetivos de negocio definidos"
+          },
+          {
+            "criteria": [
+              {
+                "completed": false,
+                "title": "a) Los analisis y tecnicas de control son determinados y aplicados en donde convenga"
+              },
+              {
+                "completed": false,
+                "title": "b) los liited del control de las variaciones son establecidos para un desempeño normal del proceso"
+              },
+              {
+                "completed": false,
+                "title": "C) las mediciones de datos son analisadas para causas especiales de variacion"
+              },
+              {
+                "completed": false,
+                "title": "d) acciones correctivas son tomadas para incluir causas especiales de variacion"
+              },
+              {
+                "completed": false,
+                "title": "e) Los limites de control son re-establecidos (según sea necesario) siguiendo con una accion correctiva"
+              }
+            ],
+            "title": "PA 4.2 Control del proceso  - Una medida de extension por la cual el proceso es cuantitativamente manejado para producir un proceso que es estable, capaz y predecible entre limites definidos"
+          }
+        ],
+        "level5": [
+          {
+            "criteria": [
+              {
+                "completed": false,
+                "title": "a) Los objetivos de mejoramiento de los procesos para los procesos son definidos y que soportan objetivos relevantes del negocio"
+              },
+              {
+                "completed": false,
+                "title": "b) Los datos apropiados son analizados para identificar causas comunes de variaciones en el desempeño del proceso"
+              },
+              {
+                "completed": false,
+                "title": "c) Los datos apropiados son analizados para identificar oportunidades para las mejores practicas e innovacion"
+              },
+              {
+                "completed": false,
+                "title": "d) Las oportunidades de mejora derivadas de nuevas tecnologias y conceptos del proceso son identificadas"
+              },
+              {
+                "completed": false,
+                "title": "e) Se establece una estrategia de implementacion para alcanzar los objetivos de mejoramiento del proceso"
+              }
+            ],
+            "title": "PA 5.1 Innovacion del proceso - Una medida de extension por la cual los cambios de los procesos son identificados desde el analizis de causas comunes de variacion en su desempeño, y de investigaciones de enfoques innovadores hasta la definicion y despliegue del proceso"
+          },
+          {
+            "criteria": [
+              {
+                "completed": false,
+                "title": "a) El impacto de todos los cambios propuestos es comparado contra los objetivos de los procesos definidos y de los procesos estandar"
+              },
+              {
+                "completed": false,
+                "title": "b) La implementacion de todos los cambios acordados es gestionada para asegurar que cualquier disrupcion para con el desempeño del proceso sea entendida y acciones sean tomadas"
+              },
+              {
+                "completed": false,
+                "title": "c) Basado en el desempeño actual, la efectividad del cambio del proceso es evaluada contra los requerimientos definidos del producto y los objetivos de los procesos para determinar si los resultados son debido a causas comunes o especiales"
+              }
+            ],
+            "title": "PA 5.2 Optimizacion del proceso - Una medida de extension por la cual los cambios de definicion, gestion y desempeño del proceso, resulta en un impacto efectivo que logra los objetivos de mejoramiento de los procesos relevantes "
+          }
+        ]
+      },
+      "id": "EDM01",
+      "isActive": false,
+      "name": "Asegurar el establecimiento y mantenimiento del marco de gobierno."
+    },
+    {
+      "assessment": {
+        "evaluatedLevel": "",
+        "goalLevel": "",
+        "level0": "N",
+        "level1": "N",
+        "level2": "N",
+        "level3": "F",
+        "level4": "N",
+        "level5": "N"
       },
       "diagnostic": {
         "audited": "S",
-        "formality": "N",
-        "importance": "2",
-        "performance": "3",
-        "responsible": "gerald"
+        "formality": "S",
+        "importance": "1",
+        "performance": "1",
+        "responsible": ""
       },
       "execution": {
         "level0": [
@@ -1785,25 +2048,27 @@
               }
             ]
           }
-        ],"level1": [
+        ],
+        "level1": [
           {
             "title": "PA 1.1 El proceso implementado logra su proposito",
             "criteria": [
               {
-                "title": "EDM01-O1 Modelo estratégico de toma de decisiones para que las TI sean efectivas y estén alineadas con el entorno externo e interno de la empresa y los requerimientos de las partes interesadas.",
+                "title": "EDM02-O1 La empresa está asegurando un valor óptimo de su portafolio de iniciativas TI, servicios y activos aprobados.",
                 "completed": false
               },
               {
-                "title": "EDM01-O2 Garantizar que el sistema de gobierno para TI está incorporado al gobierno corporativo.",
+                "title": "EDM02-O2 Se deriva un valor óptimo de la inversión TI mediante prácticas de gestión del valor en la empresa.",
                 "completed": false
               },
               {
-                "title": "EDM01-O3 Obtener garantías de que el sistema de gobierno para TI está operando de manera efectiva.",
+                "title": "EDM02-O3 Las inversiones individuales en TI contribuyen a un valor óptimo.",
                 "completed": false
               }
             ]
           }
-        ],"level2": [
+        ],
+        "level2": [
           {
             "title": "PA 2.1 Gestion del desempeño - Una medida de la extencion por la cual el desempeño de un proceso es gestionado",
             "criteria": [
@@ -1832,7 +2097,8 @@
                 "completed": false
               }
             ]
-          },{
+          },
+          {
             "title": "PA 2.2 Trabajo de Gestión de Producto - Una medida del grado en que los productos de trabajo producidos por el proceso se gestionan adecuadamente. Los productos de trabajo (o salidas del proceso) se definen y controlan.",
             "criteria": [
               {
@@ -1853,7 +2119,8 @@
               }
             ]
           }
-        ],"level3": [
+        ],
+        "level3": [
           {
             "title": "PA 3.1 Definición de proceso - Una medida de la extensión a la que se mantiene un proceso estándar para apoyar el despliegue del proceso definido.",
             "criteria": [
@@ -1893,7 +2160,8 @@
               {
                 "title": "c) El personal que ejecuta los procesos definidos son competentes en base a una educacion apropiada, entrenamiento y experiencia",
                 "completed": false
-              },{
+              },
+              {
                 "title": "d) Los recursos requeridos y la informacion ecesaria para la ejecucion de los procesos definidos se hacen disponibiles y usados",
                 "completed": false
               },
@@ -1907,7 +2175,8 @@
               }
             ]
           }
-        ],"level4": [
+        ],
+        "level4": [
           {
             "title": "PA 4.1 Medicion del proceso - Una medida de extension por la cual los resultados de la medicion son usados para asegurarse que el desempeño del proceso apoye el logro de sus objetivos relevantes para el apoyo de los objetivos de negocio definidos",
             "criteria": [
@@ -1936,7 +2205,8 @@
                 "completed": false
               }
             ]
-          },{
+          },
+          {
             "title": "PA 4.2 Control del proceso  - Una medida de extension por la cual el proceso es cuantitativamente manejado para producir un proceso que es estable, capaz y predecible entre limites definidos",
             "criteria": [
               {
@@ -1948,7 +2218,7 @@
                 "completed": false
               },
               {
-                "title": "C) las mediciones de datos son analisadas para causas especiales de variacion",
+                "title": "c) las mediciones de datos son analisadas para causas especiales de variacion",
                 "completed": false
               },
               {
@@ -1961,7 +2231,8 @@
               }
             ]
           }
-        ],"level5": [
+        ],
+        "level5": [
           {
             "title": "PA 5.1 Innovacion del proceso - Una medida de extension por la cual los cambios de los procesos son identificados desde el analizis de causas comunes de variacion en su desempeño, y de investigaciones de enfoques innovadores hasta la definicion y despliegue del proceso",
             "criteria": [
@@ -2007,29 +2278,6 @@
         ]
       },
       "domain": 1,
-      "id": "EDM01",
-      "isActive": false,
-      "name": "Asegurar el establecimiento y mantenimiento del marco de gobierno."
-    },
-    {
-      "assessment": {
-        "evaluatedLevel": "",
-        "goalLevel": "",
-        "level0": "N",
-        "level1": "N",
-        "level2": "N",
-        "level3": "N",
-        "level4": "N",
-        "level5": "N"
-      },
-      "diagnostic": {
-        "audited": "S",
-        "formality": "S",
-        "importance": "1",
-        "performance": "1",
-        "responsible": ""
-      },
-      "domain": 1,
       "id": "EDM02",
       "isActive": false,
       "name": "Asegurar la entrega de beneficios"
@@ -2051,6 +2299,246 @@
         "importance": "1",
         "performance": "1",
         "responsible": ""
+      },
+      "execution": {
+        "level0": [
+          {
+            "title": "El proceso no está implementado o no llega a alcanzar su propósito.",
+            "criteria": [
+              {
+                "title": "A este nivel, hay poca o ninguna evidencia de haber alcanzado el propósito del proceso. ",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "level1": [
+          {
+            "title": "PA 1.1 El proceso implementado logra su proposito",
+            "criteria": [
+              {
+                "title": "EDM03-O1  Los umbrales de riesgo son definidos y comunicados y los riesgos clave relacionados con la TI son conocidos.",
+                "completed": false
+              },
+              {
+                "title": "EDM03-O2 La empresa gestiona el riesgo crítico empresarial relacionado con las TI eficaz y eficientemente.",
+                "completed": false
+              },
+              {
+                "title": "EDM03-O3 Los riesgos empresariales relacionados con las TI no exceden el apetito de riesgo y el impacto del riesgo TI en el valor de la empresa es identificado y gestionado.",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "level2": [
+          {
+            "title": "PA 2.1 Gestion del desempeño - Una medida de la extencion por la cual el desempeño de un proceso es gestionado",
+            "criteria": [
+              {
+                "title": "a) Los objetivos para el desempeño del proceso son identificados",
+                "completed": false
+              },
+              {
+                "title": "b) el desempeño del proceso es planeado y monitoreado",
+                "completed": false
+              },
+              {
+                "title": "c) Desempeño del proceso es ajustado para cumplir con el plan",
+                "completed": false
+              },
+              {
+                "title": "d) las responsabilidades y autoridades para el desempeño del proceso son definidas, asignadas y comunicadas",
+                "completed": false
+              },
+              {
+                "title": "e) Recursos e informacion necesaria para el desempeño del proceso son identificadas, hechas disponibles, posicionados y usado",
+                "completed": false
+              },
+              {
+                "title": "f) Interfaces entre las partes involucradas son gestionadas para asegurar la comunicación efectiva y la asignacion clara de responsabilidades",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "title": "PA 2.2 Trabajo de Gestión de Producto - Una medida del grado en que los productos de trabajo producidos por el proceso se gestionan adecuadamente. Los productos de trabajo (o salidas del proceso) se definen y controlan.",
+            "criteria": [
+              {
+                "title": "a) Requisitos para los productos de trabajo del proceso se definen.",
+                "completed": false
+              },
+              {
+                "title": "b) Requisitos para la documentación y el control de los productos de trabajo se definen.",
+                "completed": false
+              },
+              {
+                "title": "c) los productos de trabajo están debidamente identificados, documentados y controlados.",
+                "completed": false
+              },
+              {
+                "title": "d) los productos de trabajo se revisarán de acuerdo con los planes previstos, y se ajustan si es necesario para cumplir con los requisitos.",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "level3": [
+          {
+            "title": "PA 3.1 Definición de proceso - Una medida de la extensión a la que se mantiene un proceso estándar para apoyar el despliegue del proceso definido.",
+            "criteria": [
+              {
+                "title": "a) Un proceso estándar, incluyendo guías de adaptación adecuadas, se define que describe los elementos fundamentales que deben ser incorporados en un proceso definido.",
+                "completed": false
+              },
+              {
+                "title": "b) Se determina la secuencia e interacción de los procesos estándar con otros procesos.",
+                "completed": false
+              },
+              {
+                "title": "c) Las competencias requeridas y las funciones para llevar a cabo un proceso se identifican como parte del proceso estándar.",
+                "completed": false
+              },
+              {
+                "title": "d) La infraestructura requerida y ambiente de trabajo para la realización de un proceso se identifican como parte del proceso estándar.",
+                "completed": false
+              },
+              {
+                "title": "e) Se determinan los métodos adecuados para el seguimiento de la eficacia y adecuación del proceso.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "title": "PA 3.2 Despliegue del proceso - Una medida de extension por la cual un proceso estandar es efectivamente desplegado como un proceso definido para alcanzar las salidas esperadas del proceso",
+            "criteria": [
+              {
+                "title": "a) Un proceso definido es desplegado en base a un proceso estandar apropiadamente seleccionado y/o adaptado.",
+                "completed": false
+              },
+              {
+                "title": "b) Los roles, resonsabilidades y autoridades requeridas para la ejecucion de un proceso definido son asignados y comunicados.",
+                "completed": false
+              },
+              {
+                "title": "c) El personal que ejecuta los procesos definidos son competentes en base a una educacion apropiada, entrenamiento y experiencia",
+                "completed": false
+              },
+              {
+                "title": "d) Los recursos requeridos y la informacion ecesaria para la ejecucion de los procesos definidos se hacen disponibiles y usados",
+                "completed": false
+              },
+              {
+                "title": "e) La infraestructura y ambiente de trabajo requeridos para la ejecucion de un proceso definido son hechos disponibles, manejados y mantenidos",
+                "completed": false
+              },
+              {
+                "title": "f) Los datos apropiados son recolectados y analisados en base al entendimiento del comportamiento del proceso para la evaluacion constante del proceso",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "level4": [
+          {
+            "title": "PA 4.1 Medicion del proceso - Una medida de extension por la cual los resultados de la medicion son usados para asegurarse que el desempeño del proceso apoye el logro de sus objetivos relevantes para el apoyo de los objetivos de negocio definidos",
+            "criteria": [
+              {
+                "title": "a) Las necesidades de informacion que soportan los objetivos relevantes del negocio son establecidos",
+                "completed": false
+              },
+              {
+                "title": "b) Las medidas de los objetivos de los procesos son derivados de los requerimientos de informacion de los procesos",
+                "completed": false
+              },
+              {
+                "title": "c) Los objetivos cuantitativos para la ejecucion del proceso en soporte a los objetivos relevantes del negocios son establecidos",
+                "completed": false
+              },
+              {
+                "title": "d) Las medidas y frecuencias de los indicadores a medir son identificados y definidos en linea con los objetivos del medimiento de los  procesos y objetivos cuantitavios para el desempeño de los procesos",
+                "completed": false
+              },
+              {
+                "title": "e) Los resultados de las medidas son recolectados, analisados y reportados para monitorear cual es el alcance en que los objetivos cuantitativos para el desempeño de los procesos son alcanzados",
+                "completed": false
+              },
+              {
+                "title": "f) Los resultados de las mediciones son usados para caracterizar el desempeño del proceso",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "title": "PA 4.2 Control del proceso  - Una medida de extension por la cual el proceso es cuantitativamente manejado para producir un proceso que es estable, capaz y predecible entre limites definidos",
+            "criteria": [
+              {
+                "title": "a) Los analisis y tecnicas de control son determinados y aplicados en donde convenga",
+                "completed": false
+              },
+              {
+                "title": "b) los liited del control de las variaciones son establecidos para un desempeño normal del proceso",
+                "completed": false
+              },
+              {
+                "title": "C) las mediciones de datos son analisadas para causas especiales de variacion",
+                "completed": false
+              },
+              {
+                "title": "d) acciones correctivas son tomadas para incluir causas especiales de variacion",
+                "completed": false
+              },
+              {
+                "title": "e) Los limites de control son re-establecidos (según sea necesario) siguiendo con una accion correctiva",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "level5": [
+          {
+            "title": "PA 5.1 Innovacion del proceso - Una medida de extension por la cual los cambios de los procesos son identificados desde el analizis de causas comunes de variacion en su desempeño, y de investigaciones de enfoques innovadores hasta la definicion y despliegue del proceso",
+            "criteria": [
+              {
+                "title": "a) Los objetivos de mejoramiento de los procesos para los procesos son definidos y que soportan objetivos relevantes del negocio",
+                "completed": false
+              },
+              {
+                "title": "b) Los datos apropiados son analizados para identificar causas comunes de variaciones en el desempeño del proceso",
+                "completed": false
+              },
+              {
+                "title": "c) Los datos apropiados son analizados para identificar oportunidades para las mejores practicas e innovacion",
+                "completed": false
+              },
+              {
+                "title": "d) Las oportunidades de mejora derivadas de nuevas tecnologias y conceptos del proceso son identificadas",
+                "completed": false
+              },
+              {
+                "title": "e) Se establece una estrategia de implementacion para alcanzar los objetivos de mejoramiento del proceso",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "title": "PA 5.2 Optimizacion del proceso - Una medida de extension por la cual los cambios de definicion, gestion y desempeño del proceso, resulta en un impacto efectivo que logra los objetivos de mejoramiento de los procesos relevantes ",
+            "criteria": [
+              {
+                "title": "a) El impacto de todos los cambios propuestos es comparado contra los objetivos de los procesos definidos y de los procesos estandar",
+                "completed": false
+              },
+              {
+                "title": "b) La implementacion de todos los cambios acordados es gestionada para asegurar que cualquier disrupcion para con el desempeño del proceso sea entendida y acciones sean tomadas",
+                "completed": false
+              },
+              {
+                "title": "c) Basado en el desempeño actual, la efectividad del cambio del proceso es evaluada contra los requerimientos definidos del producto y los objetivos de los procesos para determinar si los resultados son debido a causas comunes o especiales",
+                "completed": false
+              }
+            ]
+          }
+        ]
       },
       "domain": 1,
       "id": "EDM03",
@@ -2855,38 +3343,7 @@
         "-LcnAEd5y2bqB-xj7BU3",
         "-LcnAJWriMlFD-Ep2wCK",
         "-LcnAK47GCuaYdRCb8Nm",
-        "-LcnASpK9W2Yph9QC6UF",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01"
+        "-LcnASpK9W2Yph9QC6UF"
       ],
       "category": 1,
       "id": "1",
@@ -2905,26 +3362,7 @@
         "-LcnAEd5y2bqB-xj7BU3",
         "-LcnAJWriMlFD-Ep2wCK",
         "-LcnAK47GCuaYdRCb8Nm",
-        "-LcnASpK9W2Yph9QC6UF",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01"
+        "-LcnASpK9W2Yph9QC6UF"
       ],
       "category": 1,
       "id": "-Ld4TL7WxTrl3EXPjpBy",
@@ -2943,14 +3381,7 @@
         "-LcnAEd5y2bqB-xj7BU3",
         "-LcnAJWriMlFD-Ep2wCK",
         "-LcnAJrrNcgJWPWbw5iT",
-        "-LcnAK47GCuaYdRCb8Nm",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01",
-        "ITRG-01"
+        "-LcnAK47GCuaYdRCb8Nm"
       ],
       "category": 1,
       "id": "-Ld4UT_UVeZF3huHleop",
@@ -2963,8 +3394,7 @@
         "-LcnA0GsNlLCZUTB661G",
         "-LcnA7JizjB4cW20zc9t",
         "-LcnAJWriMlFD-Ep2wCK",
-        "-LcnAJrrNcgJWPWbw5iT",
-        "ITRG-01"
+        "-LcnAJrrNcgJWPWbw5iT"
       ],
       "category": 1,
       "id": "-Ld4VKNuamE84kmy9dze",

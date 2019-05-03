@@ -20,7 +20,6 @@ function executeProcess(process)
 
     $(body).find(".processTitle").html(process.id+" - "+process.name);
 
-
     var purposeTemplate = $("#processPurposeTemplate");
     var criteriaTemplate = $("#processCriteriaTemplate");
 
@@ -35,7 +34,8 @@ function executeProcess(process)
                 var purposeWrapper = $(purposeTemplate).clone();
 
                 $(purposeWrapper).removeAttr("id");
-                $(purposeWrapper).find(".purposeTitle").html(levelData.title);
+                //$(purposeWrapper).find(".purposeTitle").html(levelData.title);
+                $(purposeWrapper).find(".purposeTitle").val(levelData.title);
 
                 var purposeCriteriaWrapper = $(purposeWrapper).find(".processCriteriaWrapper");
 
@@ -78,7 +78,8 @@ function saveProcessExec()
 
         $(purposeWrapper).each(function () {
 
-            var purposeTitle = $(this).find(".purposeTitle").html();
+            //var purposeTitle = $(this).find(".purposeTitle").html();
+            var purposeTitle = $(this).find(".purposeTitle").val();
             var criteria = Array();
 
             $(this).find(".processCriteriaFormWrapper").each(function () {

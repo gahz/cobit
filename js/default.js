@@ -35,4 +35,479 @@ $( document ).ready(function(){
     setTimeout(function(){ $('.input-field label').addClass('active'); }, 1);
     $(".tabs").tabs();
     $('.modal').modal();
+/*
+    populateCobitProcessList(function(cobitProcesses){
+
+        cobitProcesses.forEach(function(cobitProcess){
+
+            if(!cobitProcess.execution)
+                cobitProcess.execution = executionTemplate;
+
+        });
+
+        firebase.database().ref('/cobitProcesses').set(cobitProcesses);
+    });
+    */
 });
+
+//test
+/*
+var executionTemplate = {
+
+    "level0": [
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        },
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        }
+    ],
+    "level1": [
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        },
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        }
+    ],
+    "level2": [
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        },
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        }
+    ],
+    "level3": [
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        },
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        }
+    ],
+    "level4": [
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        },
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        }
+    ],
+    "level5": [
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        },
+        {
+            "title": "",
+            "criteria":       [
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                },
+                {
+                    "title": "",
+                    "completed": false
+                }
+            ]
+        }
+    ]};
+    */
