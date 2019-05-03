@@ -1,3 +1,5 @@
+.modal { width: 90% !important ; height: 90% !important ; }  /* increase the height and width as you desire */
+
 html, body {
     background-color: #ededed;
     font-family: sans-serif;

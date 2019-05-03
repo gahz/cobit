@@ -33,4 +33,5 @@ $( document ).ready(function(){
 
     setTimeout(function(){ $('.input-field label').addClass('active'); }, 1);
     $(".tabs").tabs();
+    $('.modal').modal();
 });

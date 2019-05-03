@@ -117,6 +117,47 @@
 </div>
 
 <!-- COMPANY GOALS -->
+<div id="companyGoalsReports" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h5>Metas corporativas</h5>
+                <div class="divider"></div>
+                <canvas id="companyGoalsReportsGraph0"></canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <h5>Objetivos de TI relacionados a las Metas Corporativas</h5>
+                <div class="divider"></div>
+                <canvas id="companyGoalsReportsGraph1"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="divider"></div>
+                <canvas id="companyGoalsReportsGraph2"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="divider"></div>
+                <canvas id="companyGoalsReportsGraph3"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="divider"></div>
+                <canvas id="companyGoalsReportsGraph4"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-large indigo darken-3">Cerrar</a>
+    </div>
+</div>
 
 <div class="hide">
 
@@ -253,6 +294,7 @@
         <div class="card-action">
             <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('companyGoals','ITGoalsDefinition')">Anterior</a>
             <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveCompanyGoalsData()">Guardar</a>
+            <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderCompanyGoalsReports()" href="#companyGoalsReports">Reportes</a>
             <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('companyGoals','ITGoals')">Siguiente</a>
         </div>
 
@@ -262,6 +304,22 @@
 </div>
 
 <!-- IT Related company goals -->
+<div id="ITRGoalsReports" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h5>Procesos de Metas Relacionadas con TI</h5>
+                <div class="divider"></div>
+                <canvas id="ITRGoalsReportsGraph"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-large indigo darken-3">Cerrar</a>
+    </div>
+</div>
+
 <div class="hide">
     <li class="ITGoalWrapper" id="ITGoalWrapperTemplate">
         <div class="collapsible-header ITGoalTitle"></div>
@@ -336,6 +394,7 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ITGoals','companyGoals')">Anterior</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveITGoalsData()">Guardar</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderITRGoalsReports()" href="#ITRGoalsReports">Reportes</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ITGoals','AutoDiagnostic')">Siguiente</a>
                 </div>
 
@@ -346,6 +405,22 @@
 </div>
 
 <!-- Auto Diagnostic -->
+<div id="AutoDiatnosticReport" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h5>Prioridad de Procesos</h5>
+                <div class="divider"></div>
+                <canvas id="AutoDiagnosticReportGraph"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-large indigo darken-3">Cerrar</a>
+    </div>
+</div>
+
 <div class="hide">
     <div class="row processDiagnostic" id="processDiagnosticTemplate">
         <div class="input-field col s1">
@@ -456,6 +531,7 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('AutoDiagnostic','ITGoals')">Anterior</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveAutoDiagnosticData()">Guardar</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderAutoDiagnosticReport()" href="#AutoDiatnosticReport">Reportes</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('AutoDiagnostic','ProcessExecution')">Siguiente</a>
                 </div>
 
@@ -791,6 +867,7 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
@@ -809,6 +886,7 @@
 </script>
 
 <script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/reports.js"></script>
 
 <script type="text/javascript" src="js/welcomePanel.js"></script>
 <script type="text/javascript" src="js/ITGoalsDefinition.js"></script>
