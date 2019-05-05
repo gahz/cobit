@@ -22,37 +22,6 @@ function evaluateProcess(process)
 
     if(process.activityGroups)
     {
-        var optionsWrapper = $("#processDependenciesTemplate").find("select.processDependency");
-        var domainGroup = Array();
-
-        //first populate select
-        cobitProcessList.forEach(function (process) {
-
-            if(domainGroup[process.domain] == null)
-            {
-                var domainTitle;
-
-                switch(process.domain)
-                {
-                    case 1: domainTitle = "Evaluar, Orientar y Supervisar"; break;
-                    case 2: domainTitle = "Alinear, Planificar y Organizar"; break;
-                    case 3: domainTitle = "Construir, Adquirir e Implementar"; break;
-                    case 4: domainTitle = "Entrega, Servicio y Soporte"; break;
-                    case 5: domainTitle = "Supervisar, Evaluar y Valorar"; break;
-                }
-
-                domainGroup[process.domain] = $("<optgroup></optgroup>");
-                $(domainGroup[process.domain]).attr("label", domainTitle);
-                optionsWrapper.append(domainGroup[process.domain]);
-            }
-
-            var option = $("<option></option>");
-            $(option).attr("value", process.id);
-            $(option).html(process.id+" - "+process.name);
-
-            domainGroup[process.domain].append(option);
-        });
-
         process.activityGroups.forEach(function (activityGroup, index) {
 
             var groupTemplate = $("#processEvalGroupTemplate").clone();
