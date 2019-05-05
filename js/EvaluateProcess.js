@@ -97,6 +97,10 @@ function deleteActivityEvaluation(el) {
     $(el).parent().parent().remove();
 }
 
+function deleteActivityGroup(el) {
+    $(el).parent().parent().parent().parent().remove();
+}
+
 function saveProcessActivityEvaluation()
 {
     var mainContainer = $("#mainContainer");
@@ -152,3 +156,4 @@ function saveProcessActivityEvaluation()
 
     M.toast({html: 'Guardado'});
 }
+
