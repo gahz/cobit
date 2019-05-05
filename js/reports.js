@@ -56,6 +56,45 @@ function barChartRenderer(data, labels, wrapper, datasetLabel, borderColor, bgCo
     });
 }
 
+
+function barChartRendererPercentage(data, labels, wrapper, datasetLabel, borderColor, bgColor)
+{
+    var ctx = document.getElementById(wrapper).getContext('2d');
+
+    new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: datasetLabel,
+                data: data,
+                borderColor: borderColor,
+                backgroundColor: bgColor
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        stepSize: 10
+                    }
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            }/*,
+            title: {
+                display: true,
+                text: datasetLabel
+            }*/
+        }
+    });
+}
+
+
 /*
 function verticalBarChartRenderer(data, labels, wrapper, datasetLabel, bgColor, borderColor)
 {
@@ -228,7 +267,27 @@ function renderAutoDiagnosticReport()
     doughnutChartRenderer([audited, (cobitProcessList.length-audited)], ["Auditado", "No Auditado"], "AutoDiagnosticReportGraphAudited", "Auditado", ["#3e95cd", "#8e5ea2"]);
 }
 
+function renderEvaluationGlobalReport()
+{
+    //companyGoalsData
+    var dataGraph = Array();
+    var labelsGraph = Array();
+
+    cobitProcessList.forEach(function (process) {
+        labelsGraph.push(process.id+" - "+process.name);
+        dataGraph.push(process.evaluationResult);
+    });
+
+    barChartRendererPercentage(dataGraph, labelsGraph, "ProcessEvaluationGlobal", "Porcentaje de Progreso", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
+    assessmentReportGeneral("AssessmentGlobal");
+}
+
 function renderAssessmentReport()
+{
+    assessmentReportGeneral("AssessmentPAM");
+}
+
+function assessmentReportGeneral(whereTo)
 {
     //companyGoalsData
     var dataGraph = Array();
@@ -257,7 +316,7 @@ function renderAssessmentReport()
         dataGraph.push(level);
     });
 
-    barChartRenderer(dataGraph, labelsGraph, "AssessmentPAM", "Nivel", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
+    barChartRenderer(dataGraph, labelsGraph, whereTo, "Nivel de Madurez", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
 }
 
 function renderExecutionReport(data)

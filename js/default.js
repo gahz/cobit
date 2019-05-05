@@ -61,6 +61,19 @@ $( document ).ready(function(){
         firebase.database().ref('/cobitProcesses').set(cobitProcesses);
     });
     */
+/*
+    populateCobitProcessList(function(cobitProcesses){
+
+        cobitProcesses.forEach(function(cobitProcess){
+
+            if(!cobitProcess.evaluationResult)
+                cobitProcess.evaluationResult = 0;
+
+        });
+
+        firebase.database().ref('/cobitProcesses').set(cobitProcesses);
+    });
+    */
 });
 
 

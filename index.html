@@ -585,6 +585,31 @@
 </div>
 
 <!-- Process Execution -->
+<div id="AllProcessEvaluationReport" class="modal">
+    <div class="modal-content">
+
+        <div class="row">
+            <div class="col s12">
+                <h5>Resultados de Evaluación de Procesos</h5>
+                <div class="divider"></div>
+                <canvas id="ProcessEvaluationGlobal"></canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <h5>Resultado Estadistico de PAM</h5>
+                <div class="divider"></div>
+                <canvas id="AssessmentGlobal"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-large indigo darken-3">Cerrar</a>
+    </div>
+</div>
+
 <div class="hide">
     <div class="row" id="processExecutionTemplate">
         <div class="input-field col s1">
@@ -659,7 +684,7 @@
 
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessExecution','AutoDiagnostic')">Anterior</a>
-                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderAssessmentReport()" href="#AssessmentReport">Reportes</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="renderEvaluationGlobalReport()" href="#AllProcessEvaluationReport">Reportes</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition('ProcessExecution','ProcessAssessment')">Resultados</a>
                 </div>
 
