@@ -231,9 +231,6 @@ function saveProcessActivityEvaluation()
 
     });
 
-    console.log(activityGroups);
-
-    /*
     //updating db
     if(updateIndex==null) {
         firebase.database().ref('/cobitProcesses').set(cobitProcessList);
@@ -241,7 +238,7 @@ function saveProcessActivityEvaluation()
         firebase.database().ref('/cobitProcesses/' + updateIndex + "/activityGroups").set(activityGroups);
         firebase.database().ref('/cobitProcesses/' + updateIndex + "/evaluationResult").set(evaluationResult);
     }
-       */
+
     M.toast({html: 'Guardado'});
 }
 
