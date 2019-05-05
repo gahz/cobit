@@ -185,3 +185,25 @@ function buildEvaluationReport()
 {
     renderEvaluationIndividualReport(lastEvaluatedProcess);
 }
+
+function addActivity(el)
+{
+    var activitiesWrapper = $(el).parent().parent().parent().find(".activitiesWrapper");
+    var activityFormTemplate = $("#processActivitiesTemplate").clone();
+    $(activityFormTemplate).removeAttr("id");
+
+    $(activityFormTemplate).find(".processActivity").val("0");
+
+    activitiesWrapper.append(activityFormTemplate);
+}
+
+function addDependency(el)
+{
+    var dependenciesWrapper = $(el).parent().parent().parent().find(".dependenciesWrapper");
+    var dependencyFormTemplate = $("#processDependenciesTemplate").clone();
+    $(dependencyFormTemplate).removeAttr("id");
+
+    $(dependencyFormTemplate).find(".processDependency").val("");
+
+    dependenciesWrapper.append(dependencyFormTemplate);
+}
