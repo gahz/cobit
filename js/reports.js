@@ -324,3 +324,26 @@ function renderExecutionReport(data)
     processExecutionRenderer(data, ["Nivel 0", "Nivel 1","Nivel 2", "Nivel 3", "Nivel 4", "Nivel 5"], "ExecutionReport", "Porcentaje de Avance", 'rgba(0, 0, 192, 0.2)', 'rgba(0, 0, 192, 1)');
     //barChartRenderer(data, ["Nivel 1"], "AssessmentPAM", "Nivel", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
 }
+
+function renderEvaluationIndividualReport(process)
+{
+    var dataGraph = Array();
+    var labelsGraph = Array();
+
+    process.activityGroups.forEach(function (group, index) {
+
+        labelsGraph.push(process.id+"."+(index+1));
+        var acumulator = 0;
+        var counter = 0;
+
+        group.activities.forEach(function (activity) {
+            acumulator += parseInt(activity);
+            counter ++;
+        });
+
+        dataGraph.push((acumulator/counter));
+    });
+
+    barChartRendererPercentage(dataGraph, labelsGraph, "EvaluationIndividual", "Porcentaje de Progreso", 'rgba(0, 0, 192, 1)', 'rgba(0, 0, 192, 0.2)');
+
+}

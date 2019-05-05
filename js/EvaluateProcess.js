@@ -181,3 +181,7 @@ function saveProcessActivityEvaluation()
     M.toast({html: 'Guardado'});
 }
 
+function buildEvaluationReport()
+{
+    renderEvaluationIndividualReport(lastEvaluatedProcess);
+}

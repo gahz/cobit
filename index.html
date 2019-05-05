@@ -979,6 +979,22 @@
 </div>
 
 <!-- Evaluating Process -->
+<div id="ProcessEvaluationReport" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h5>Evaluación</h5>
+                <div class="divider"></div>
+                <canvas id="EvaluationIndividual"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-large indigo darken-3">Cerrar</a>
+    </div>
+</div>
+
 <div class="hide">
 
     <li class="processEvaluationGroup" id="processEvalGroupTemplate">
@@ -1086,6 +1102,7 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition(null,'ProcessExecution')">Anterior</a>
                     <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveProcessActivityEvaluation()">Guardar</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3 modal-trigger" onclick="buildEvaluationReport()" href="#ProcessEvaluationReport">Reportes</a>
                 </div>
 
             </div>
