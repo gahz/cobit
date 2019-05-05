@@ -29,8 +29,8 @@ function updatePosition(lastPosition, nextPosition)
 
 $( document ).ready(function(){
     //default position is welcome panel
-    //updatePosition(null, "welcomePanel");
-    updatePosition(null, "ProcessExecution");
+    updatePosition(null, "welcomePanel");
+    //updatePosition(null, "ProcessExecution");
 
     setTimeout(function(){ $('.input-field label').addClass('active'); }, 1);
     $(".tabs").tabs();
@@ -97,7 +97,7 @@ $( document ).ready(function(){
 });
 
 
-
+/*
 var activityGroupsTemplate = [
     {
         "dependencies":       [
@@ -360,7 +360,7 @@ var activityGroupsTemplate = [
         ]
     }
 ];
-/*
+
 
 
 var executionTemplate = {
