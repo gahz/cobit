@@ -193,7 +193,7 @@ function saveProcessActivityEvaluation()
         $(this).find(".dependenciesWrapper").each(function () {
 
             $(this).find(".processDependencyForm").each(function () {
-                dependencies.push($(this).find(".processDependency").val());
+                dependencies.push($(this).find(".processDependency").html());
             });
 
         });
@@ -220,9 +220,6 @@ function saveProcessActivityEvaluation()
     var updateIndex = null;
     var evaluationResult = (activityResultAcumulator/activityResultCounter);
 
-    console.log(activityResultAcumulator);
-    console.log(activityResultCounter);
-
     //Searching process for db update
     cobitProcessList.forEach(function (cProcess, index) {
 
@@ -234,6 +231,9 @@ function saveProcessActivityEvaluation()
 
     });
 
+    console.log(activityGroups);
+
+    /*
     //updating db
     if(updateIndex==null) {
         firebase.database().ref('/cobitProcesses').set(cobitProcessList);
@@ -241,7 +241,7 @@ function saveProcessActivityEvaluation()
         firebase.database().ref('/cobitProcesses/' + updateIndex + "/activityGroups").set(activityGroups);
         firebase.database().ref('/cobitProcesses/' + updateIndex + "/evaluationResult").set(evaluationResult);
     }
-
+       */
     M.toast({html: 'Guardado'});
 }
 
