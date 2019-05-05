@@ -20,6 +20,9 @@ function evaluateProcess(process)
 
     var activityGroupWrapper = $(body).find(".processActivityGroupsWrapper");
 
+    var imageDescriptorTemplate = $("#processDescriptorTemplate");
+    loadImageDescriptors(1, imageDescriptorTemplate, $(body).find(".processActivitiesDescription"), process.id);
+
     if(process.activityGroups)
     {
         process.activityGroups.forEach(function (activityGroup, index) {
@@ -29,27 +32,33 @@ function evaluateProcess(process)
 
             $(groupTemplate).find(".activityGroupTitle").html(process.id+"."+(index+1));
 
-            activityGroup.dependencies.forEach(function (dependency) {
+            if(activityGroup.dependencies)
+            {
+                activityGroup.dependencies.forEach(function (dependency) {
 
-                var dependenciesWrapper = $(groupTemplate).find(".dependenciesWrapper");
-                var dependencyFormTemplate = $("#processDependenciesTemplate").clone();
-                $(dependencyFormTemplate).removeAttr("id");
+                    var dependenciesWrapper = $(groupTemplate).find(".dependenciesWrapper");
+                    var dependencyFormTemplate = $("#processDependenciesTemplate").clone();
+                    $(dependencyFormTemplate).removeAttr("id");
 
-                $(dependencyFormTemplate).find(".processDependency").val(dependency);
-                dependenciesWrapper.append(dependencyFormTemplate);
-            });
+                    $(dependencyFormTemplate).find(".processDependency").val(dependency);
+                    dependenciesWrapper.append(dependencyFormTemplate);
+                });
+            }
 
-            activityGroup.activities.forEach(function (activity, index) {
+            if(activityGroup.activities)
+            {
+                activityGroup.activities.forEach(function (activity, index) {
 
-                var activitiesWrapper = $(groupTemplate).find(".activitiesWrapper");
-                var activityFormTemplate = $("#processActivitiesTemplate").clone();
-                $(activityFormTemplate).removeAttr("id");
+                    var activitiesWrapper = $(groupTemplate).find(".activitiesWrapper");
+                    var activityFormTemplate = $("#processActivitiesTemplate").clone();
+                    $(activityFormTemplate).removeAttr("id");
 
-                $(activityFormTemplate).find(".processActivityTitle").val($(activityFormTemplate).find(".processActivityTitle").val()+" "+(index+1)+":");
+                    $(activityFormTemplate).find(".processActivityTitle").val($(activityFormTemplate).find(".processActivityTitle").val() + " " + (index + 1) + ":");
 
-                $(activityFormTemplate).find(".processActivity").val(activity);
-                activitiesWrapper.append(activityFormTemplate);
-            });
+                    $(activityFormTemplate).find(".processActivity").val(activity);
+                    activitiesWrapper.append(activityFormTemplate);
+                });
+            }
 
             activityGroupWrapper.append(groupTemplate);
         })
@@ -60,6 +69,30 @@ function evaluateProcess(process)
     M.updateTextFields();
     $(loading).remove();
     $(body).show();
+}
+
+function loadImageDescriptors(index, template, wrapper, processId)
+{
+    console.log("procesos/"+processId+"-"+index+".png");
+
+    checkImage("procesos/"+processId+"-"+index+".png", function () {
+
+        var imgTemplate = $(template).clone();
+        $(imgTemplate).removeAttr("id");
+
+        $(imgTemplate).find("img").attr("src", "procesos/"+processId+"-"+index+".png");
+        wrapper.append(imgTemplate);
+
+        loadImageDescriptors(index+1, template, wrapper, processId);
+
+    }, function () {});
+}
+
+function checkImage(imageSrc, good, bad) {
+    var img = new Image();
+    img.onload = good;
+    img.onerror = bad;
+    img.src = imageSrc;
 }
 
 function deleteActivityEvaluation(el) {
