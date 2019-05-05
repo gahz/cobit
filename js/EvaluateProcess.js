@@ -1,6 +1,6 @@
 var lastEvaluatedProcess=null;
 
-function evaluateProcess(process)
+function evaluateProcess(process, activityGroupIndex)
 {
     lastEvaluatedProcess = process;
 
@@ -31,19 +31,49 @@ function evaluateProcess(process)
                 var groupTemplate = $("#processEvalGroupTemplate").clone();
                 $(groupTemplate).removeAttr("id");
 
+                if(activityGroupIndex!=null && activityGroupIndex==index)
+                    $(groupTemplate).addClass("active");
+
+
                 $(groupTemplate).find(".activityGroupTitle").html(process.id+"."+(index+1));
+
+                var fillable = true;
 
                 if(activityGroup.dependencies)
                 {
+                    var dependencyAcumulator = 0;
+                    var dependencyCounter = 0;
+
                     activityGroup.dependencies.forEach(function (dependency) {
+
+                        dependencyCounter++;
+                        dependencyAcumulator += getDependencyResult(dependency);
 
                         var dependenciesWrapper = $(groupTemplate).find(".dependenciesWrapper");
                         var dependencyFormTemplate = $("#processDependenciesTemplate").clone();
                         $(dependencyFormTemplate).removeAttr("id");
 
-                        $(dependencyFormTemplate).find(".processDependency").val(dependency);
+                        //$(dependencyFormTemplate).find(".processDependency").val(dependency);
+                        $(dependencyFormTemplate).find(".processDependency").html(dependency);
+                        $(dependencyFormTemplate).find(".processDependency").click(function () {
+
+                            var dependencyData = dependency.split(".");
+                            var processId = dependencyData[0];
+                            var activityGroupIndex = dependencyData[1];
+
+                            cobitProcessList.forEach(function (cProcess) {
+
+                                if(cProcess.id==processId)
+                                    evaluateProcess(cProcess, activityGroupIndex);
+
+                            });
+                        });
+                        
                         dependenciesWrapper.append(dependencyFormTemplate);
                     });
+
+                    if((dependencyAcumulator/dependencyCounter)<75)
+                        fillable=false;
                 }
 
                 if(activityGroup.activities)
@@ -55,8 +85,11 @@ function evaluateProcess(process)
                         $(activityFormTemplate).removeAttr("id");
 
                         $(activityFormTemplate).find(".processActivityTitle").val($(activityFormTemplate).find(".processActivityTitle").val() + " " + (index + 1) + ":");
-
                         $(activityFormTemplate).find(".processActivity").val(activity);
+
+                        if(!fillable)
+                            $(activityFormTemplate).find(".processActivity").attr("disabled", true);
+
                         activitiesWrapper.append(activityFormTemplate);
                     });
                 }
@@ -73,6 +106,37 @@ function evaluateProcess(process)
 
     });
 
+}
+
+function getDependencyResult(dependency)
+{
+    var dependencyData = dependency.split('.');
+    var processId = dependencyData[0];
+    var activityGroupIndex = dependencyData[1];
+    var acumulator = 0;
+    var counter = 0;
+
+    cobitProcessList.forEach(function (process) {
+        if(process.id == processId)
+        {
+            var activityGroup = process.activityGroups[activityGroupIndex];
+
+            if(activityGroup)
+            {
+                activityGroup.activities.forEach(function (activity) {
+
+                    counter++;
+                    acumulator += parseInt(activity);
+                });
+
+            }
+        }
+    });
+
+    if(counter>0)
+        return (acumulator/counter);
+    else
+        return 0;
 }
 
 function loadImageDescriptors(index, template, wrapper, processId, keepGoing)

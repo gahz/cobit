@@ -49,7 +49,7 @@ var buildProcessExecutionPanel = function()
                        executeProcess(process);
                     });
                     $(template).find(".processEvaluator").click(function(){
-                        evaluateProcess(process);
+                        evaluateProcess(process, null);
                     });
 
                     wrapper.append(template);

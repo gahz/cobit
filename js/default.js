@@ -64,6 +64,26 @@ $( document ).ready(function(){
 /*
     populateCobitProcessList(function(cobitProcesses){
 
+        cobitProcesses.forEach(function(cobitProcess, index){
+
+            if(cobitProcess.id=="BAI01")
+            {
+                var activityGroups = cobitProcess.activityGroups;
+                activityGroups.push(activityGroupsTemplate);
+                activityGroups.push(activityGroupsTemplate);
+                activityGroups.push(activityGroupsTemplate);
+                activityGroups.push(activityGroupsTemplate);
+
+                firebase.database().ref('/cobitProcesses/'+index+"/activityGroups").set(activityGroups);
+            }
+
+        });
+
+    });
+    */
+/*
+    populateCobitProcessList(function(cobitProcesses){
+
         cobitProcesses.forEach(function(cobitProcess){
 
             if(!cobitProcess.evaluationResult)
@@ -77,7 +97,7 @@ $( document ).ready(function(){
 });
 
 
-/*
+
 var activityGroupsTemplate = [
     {
         "dependencies":       [
@@ -340,7 +360,7 @@ var activityGroupsTemplate = [
         ]
     }
 ];
-
+/*
 
 
 var executionTemplate = {
