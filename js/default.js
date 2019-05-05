@@ -29,8 +29,8 @@ function updatePosition(lastPosition, nextPosition)
 
 $( document ).ready(function(){
     //default position is welcome panel
-    updatePosition(null, "welcomePanel");
-    //updatePosition(null, "ProcessExecution");
+    //updatePosition(null, "welcomePanel");
+    updatePosition(null, "ProcessExecution");
 
     setTimeout(function(){ $('.input-field label').addClass('active'); }, 1);
     $(".tabs").tabs();
@@ -48,10 +48,288 @@ $( document ).ready(function(){
         firebase.database().ref('/cobitProcesses').set(cobitProcesses);
     });
     */
+/*
+    populateCobitProcessList(function(cobitProcesses){
+
+        cobitProcesses.forEach(function(cobitProcess){
+
+            if(!cobitProcess.activityGroups)
+                cobitProcess.activityGroups = activityGroupsTemplate;
+
+        });
+
+        firebase.database().ref('/cobitProcesses').set(cobitProcesses);
+    });
+    */
 });
 
-//test
+
 /*
+var activityGroupsTemplate = [
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "dependencies":       [
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01",
+            "EDM01"
+        ],
+        "activities":       [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    }
+];
+
+
+
 var executionTemplate = {
 
     "level0": [

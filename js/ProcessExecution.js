@@ -48,6 +48,9 @@ var buildProcessExecutionPanel = function()
                     $(template).find(".processExecutor").click(function(){
                        executeProcess(process);
                     });
+                    $(template).find(".processEvaluator").click(function(){
+                        evaluateProcess(process);
+                    });
 
                     wrapper.append(template);
                 }

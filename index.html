@@ -14,7 +14,6 @@
 </head>
 <body>
 
-
 <nav>
   <div class="nav-wrapper indigo darken-3">
     <a href="#" class="brand-logo">
@@ -598,6 +597,7 @@
         </div>
         <div clas="col s2">
             <a class="waves-effect waves-light btn-large indigo darken-3 processExecutor">Ejecutar</a>
+            <a class="waves-effect waves-light btn-large indigo darken-3 processEvaluator">Evaluar</a>
         </div>
     </div>
 </div>
@@ -953,6 +953,100 @@
     </div>
 </div>
 
+<!-- Evaluating Process -->
+<div class="hide">
+
+    <li class="processEvaluationGroup" id="processEvalGroupTemplate">
+        <div class="collapsible-header activityGroupTitle"></div>
+        <div class="collapsible-body">
+
+
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="processTitle">Dependencias de Proceso</h5>
+                    <div class="divider"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 dependenciesWrapper">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="processTitle">Valoración de Actividades</h5>
+                    <div class="divider"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 activitiesWrapper">
+
+                </div>
+            </div>
+
+        </div>
+    </li>
+
+    <div class="row processDependencyForm" id="processDependenciesTemplate">
+        <div class="input-field col s8">
+            <select class="processDependency"></select>
+        </div>
+        <div clas="col s2">
+            <a class="waves-effect waves-light btn-large indigo darken-3" onclick="deleteActivityEvaluation(this)">Eliminar</a>
+        </div>
+    </div>
+
+    <div class="row processActivityForm" id="processActivitiesTemplate">
+        <div class="input-field col s6">
+            <input type="text" class="validate black-text processActivityTitle" value="Porcentaje de Avance de Actividad " disabled="true">
+        </div>
+        <div class="input-field col s2">
+            <input type="number" max="100" min="0" class="validate black-text processActivity">
+        </div>
+        <div clas="col s2">
+            <a class="waves-effect waves-light btn-large indigo darken-3" onclick="deleteActivityEvaluation(this)">Eliminar</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="hide" id="evaluatingProcessWrapper">
+    <div class="row" id="evaluatingProcess">
+
+        <div class="row">
+            <div class="col s12 card">
+
+                <div class="card-content">
+
+                    <div class="row">
+                        <div class="col s12">
+                            <h5 class="processTitle"></h5>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <ul class="collapsible processActivityGroupsWrapper">
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="updatePosition(null,'ProcessExecution')">Anterior</a>
+                    <a class="waves-effect waves-light btn-large indigo darken-3" onclick="saveProcessActivityEvaluation()">Guardar</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- container -->
 <div class="container" id="mainContainer">
 
 </div>
@@ -986,6 +1080,7 @@
 <script type="text/javascript" src="js/ProcessExecution.js"></script>
 <script type="text/javascript" src="js/ProcessAssessment.js"></script>
 <script type="text/javascript" src="js/ExecuteProcess.js"></script>
+<script type="text/javascript" src="js/EvaluateProcess.js"></script>
 <script type="text/javascript" src="js/default.js"></script>
 
 </body>
