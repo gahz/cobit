@@ -12,6 +12,7 @@ function evaluateProcess(process)
     $(body).removeAttr("id");
 
     $(mainContainer).empty();
+    mainContainer.append(loading);
     mainContainer.append(body);
 
     $(body).hide();
